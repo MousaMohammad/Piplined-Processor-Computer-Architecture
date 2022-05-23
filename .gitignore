@@ -7,4 +7,6 @@ work/
 
 ### VS Code ###
 .vscode/
-indexer result/index.json
+
+## Test do file
+test.do
