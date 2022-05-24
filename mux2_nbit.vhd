@@ -2,7 +2,7 @@ Library ieee;
 Use ieee.std_logic_1164.all;
 
 ENTITY mux2_nbit IS
-GENERIC (n : integer := 8);
+GENERIC (n : integer := 32);
 PORT( in0,in1: IN std_logic_vector (n-1 DOWNTO 0);
 sel : IN std_logic;
 out1: OUT std_logic_vector (n-1 DOWNTO 0));
