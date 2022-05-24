@@ -19,13 +19,6 @@ END ENTITY;
 
 ARCHITECTURE RegFileArch OF RegFile IS
 
-    COMPONENT Reg IS
-        PORT (
-            Rst, Clk, Enable : IN STD_LOGIC;
-            RegInput : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            RegOutput : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
-    END COMPONENT;
-
     SIGNAL RegInput0, RegInput1, RegInput2, RegInput3,
     RegInput4, RegInput5, RegInput6, RegInput7 : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL RegOutput0, RegOutput1, RegOutput2, RegOutput3,
@@ -34,7 +27,7 @@ ARCHITECTURE RegFileArch OF RegFile IS
     Enable4, Enable5, Enable6, Enable7 : STD_LOGIC;
 
 BEGIN
-    reg0 : Reg
+    reg0 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
@@ -42,49 +35,49 @@ BEGIN
         RegInput => RegInput0,
         RegOutput => RegOutput0);
 
-    reg1 : Reg
+    reg1 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
         Enable => Enable1,
         RegInput => RegInput1,
         RegOutput => RegOutput1);
-    reg2 : Reg
+    reg2 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
         Enable => Enable2,
         RegInput => RegInput2,
         RegOutput => RegOutput2);
-    reg3 : Reg
+    reg3 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
         Enable => Enable3,
         RegInput => RegInput3,
         RegOutput => RegOutput3);
-    reg4 : Reg
+    reg4 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
         Enable => Enable4,
         RegInput => RegInput4,
         RegOutput => RegOutput4);
-    reg5 : Reg
+    reg5 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
         Enable => Enable5,
         RegInput => RegInput5,
         RegOutput => RegOutput5);
-    reg6 : Reg
+    reg6 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
         Enable => Enable6,
         RegInput => RegInput6,
         RegOutput => RegOutput6);
-    reg7 : Reg
+    reg7 : entity work.Reg GENERIC map(32)
     PORT MAP(
         Rst => Rst,
         Clk => Clk,
