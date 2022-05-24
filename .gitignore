@@ -17,3 +17,5 @@ work/_info
 
 ## Test do file
 test.do
+*.tmp
+~$cumentation 2.docx
