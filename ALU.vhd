@@ -4,22 +4,20 @@ Use ieee.std_logic_1164.all;
 Entity ALU IS
 GENERIC (n : integer := 32);
 	PORT(
-        clk : IN STD_LOGIC;
         A,B:IN std_logic_vector (n-1 DOWNTO 0);
-	     Cin:IN std_logic;
 	     opCode:IN std_logic_vector (3 DOWNTO 0);
-	     CCR:out std_logic_vector (3 DOWNTO 0);
-	     F:OUT std_logic_vector (n-1 DOWNTO 0));
+	     CCR:IN std_logic_vector (2 DOWNTO 0);
+	     F:OUT std_logic_vector (n-1 DOWNTO 0);
+         Cout:OUT std_logic
+         );
 END Entity;
 
 ARCHITECTURE archB OF ALU IS
 BEGIN
 
-    -- SETC --
-    CCR(2) <= '1' WHEN opCode = "000";
-
-    F <= NOT A WHEN opCode = "001";
-    CCR(0) <= '1' WHEN opCode = "001" and A = (others => '0');
+    -- NOT --
+    F <= NOT A WHEN opCode = "000"
+    ELSE F;
     
     process( clk ) is
     begin
