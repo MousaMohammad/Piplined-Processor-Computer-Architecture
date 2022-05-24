@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
 13
 !s112 1.1
 !i10d 8192
@@ -8,3 +9,173 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/mousa/Documents/CCEC/Computer Archit/Modelsim/LabExam
+Ealu
+w1653315983
+Z0 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z1 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+Z2 dD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture
+8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd
+FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd
+l0
+L4 1
+VX;:dWQe4I=Rij4bGkIkDV0
+!s100 lUQBJ4iOo4bej6Ef[6eUi2
+Z3 OV;C;2020.1;71
+32
+Z4 !s110 1653335878
+!i10b 1
+Z5 !s108 1653335878.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd|
+!s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd|
+!i113 1
+Z6 o-work work -2002 -explicit
+Z7 tExplicit 1 CvgOpt 0
+Ebuf
+Z8 w1653335844
+R0
+R1
+!i122 3
+R2
+Z9 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
+Z10 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
+l0
+L4 1
+VEV`^5@^S0Xm5B<UzZi]TU0
+!s100 P`T_KEb:Jn`C1BTGQU@EO1
+R3
+32
+Z11 !s110 1653335879
+!i10b 1
+Z12 !s108 1653335879.000000
+Z13 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
+Z14 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
+!i113 1
+R6
+R7
+Abuf_arch
+R0
+R1
+DEx4 work 3 buf 0 22 EV`^5@^S0Xm5B<UzZi]TU0
+!i122 3
+l18
+L17 21
+V@970LNnfLR;fG9fWT=`g`2
+!s100 Y3FK]G;EK_VH5F7EFWYHd0
+R3
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R6
+R7
+Eexecutestage
+w1653335813
+R0
+R1
+!i122 2
+R2
+8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd
+FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd
+l0
+L4 1
+Vo6Fz2IRk9Khcg^@YoEFRJ2
+!s100 f=m1<fV<TiJX^2RZGL42F0
+R3
+32
+R4
+!i10b 1
+R5
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd|
+!s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd|
+!i113 1
+R6
+R7
+Ereg
+w1653338474
+R0
+R1
+!i122 9
+R2
+R9
+R10
+l0
+L4 1
+V^:zEmNZinhBLYUB0emoZP0
+!s100 g^b@=29XN<6[F]hQ6RhkP1
+R3
+32
+!s110 1653338805
+!i10b 1
+!s108 1653338804.000000
+R13
+R14
+!i113 1
+R6
+R7
+Aregarch
+w1653341434
+R0
+R1
+DEx4 work 3 reg 0 22 ^:zEmNZinhBLYUB0emoZP0
+!i122 13
+Z15 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd
+Z16 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd
+l34
+L20 65
+VR3TkVR8F9z=2]nG9g99Xo2
+!s100 I^36CJNMVOR28:0@2KkY;2
+R3
+32
+!s110 1653338895
+!i10b 1
+!s108 1653338895.000000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd|
+Z18 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd|
+!i113 1
+R6
+R7
+Eregfile
+Z19 w1653341871
+R0
+R1
+!i122 28
+R2
+R15
+R16
+l0
+L4 1
+V49KZ`T8N^<a_36VO^fmHD0
+!s100 9k9FE;BG<ihLS>PWC55B00
+R3
+32
+Z20 !s110 1653341879
+!i10b 1
+Z21 !s108 1653341879.000000
+R17
+R18
+!i113 1
+R6
+R7
+Aregfilearch
+R0
+R1
+Z22 DEx4 work 7 regfile 0 22 49KZ`T8N^<a_36VO^fmHD0
+!i122 28
+l36
+L20 170
+VfzBZ]dZ5O:cUe7bMmlKgg0
+!s100 b0gJngfd<KH3KRDT3^;Uh1
+R3
+32
+R20
+!i10b 1
+R21
+R17
+R18
+!i113 1
+R6
+R7
