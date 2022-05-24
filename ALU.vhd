@@ -13,10 +13,10 @@ GENERIC (n : integer := 32);
 END Entity;
 
 ARCHITECTURE archB OF ALU IS
+-- INC signals --
 signal incRes: std_logic_vector(31 DOWNTO 0);
 signal incCout: std_logic;
 BEGIN
-
     -- NOT --
     F <= NOT A WHEN opCode = "000"
     -- INC --
