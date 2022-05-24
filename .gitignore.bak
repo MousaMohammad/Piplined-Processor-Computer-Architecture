@@ -1,0 +1,21 @@
+# Compiled class file
+*.class
+
+*.mpf
+*.mti
+
+transcript
+
+work/
+
+### VS Code ###
+.vscode/
+<<<<<<< HEAD
+indexer result/index.json
+transcript
+work/_info
+=======
+
+## Test do file
+test.do
+>>>>>>> 0b3ea317f4079e70f737d215def40a44f46efe82
