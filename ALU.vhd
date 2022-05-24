@@ -21,6 +21,8 @@ BEGIN
     F <= NOT A WHEN opCode = "000"
     -- INC --
     ELSE incRes WHEN opCode = "001";
+    -- ADD --
+    
 
     INC :entity work.my_nadder GENERIC map(32) port map(A, "00000000000000000000000000000001",CCR(2), incRes, incCout);
 Cout <= incCout WHEN opCode = "001";
