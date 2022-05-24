@@ -11,3 +11,5 @@ work/
 ### VS Code ###
 .vscode/
 indexer result/index.json
+transcript
+work/_info
