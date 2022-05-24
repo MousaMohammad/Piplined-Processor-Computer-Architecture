@@ -3,6 +3,8 @@
 
 *.mpf
 *.mti
+*.wlf
+*.bak
 
 transcript
 
