@@ -31,7 +31,7 @@ begin
   -- pass the instruction to the ALU --
   alu: entity work.ALU GENERIC map(32) port map(Rsrc1, exeSrcSig, AluOpCode,ccrIn,aluResult,cToflag);
   -- wire alu with flag control --
-  flagCU: entity work.flagControl port map(aluResult, cToflag, SETC, ccrOut,F);
+  flagCU: entity work.flagControl port map(aluResult, cToflag, SETC, ccrIn,ccrOut,F);
   -- wire CCR register with flag control --
   ccr: entity work.Reg GENERIC map(3) port map(Rst, Clk, '1',ccrOut, ccrIn);
 
