@@ -4,11 +4,11 @@ Use ieee.std_logic_1164.all;
 Entity ALU IS
 GENERIC (n : integer := 32);
 	PORT(
-        A,B:IN std_logic_vector (n-1 DOWNTO 0);
+             A,B:IN std_logic_vector (n-1 DOWNTO 0);
 	     opCode:IN std_logic_vector (2 DOWNTO 0);
 	     CCR:IN std_logic_vector (2 DOWNTO 0);
 	     F:OUT std_logic_vector (n-1 DOWNTO 0);
-         Cout:OUT std_logic
+             Cout:OUT std_logic
          );
 END Entity;
 

@@ -18,7 +18,7 @@ begin
     -- CCR(0) = Z flag, CCR(1) = N flag, CCR(2) = C flag --
     CCR(0) <= '1' WHEN aluRes = "00000000000000000000000000000000" ELSE '0';
     CCR(1) <= '1' WHEN std_logic_vector(signed(aluRes)) < "00000000000000000000000000000000" ELSE '0';
-    CCR(2) <= carry WHEN setc = '0' and (carry = '1' or carry =  '0')
+    CCR(2) <= carry WHEN (setc = '0' or setc = 'U') and (carry = '1' or carry =  '0')
     ELSE '1' WHEN setc = '1';
 
     F <= aluRes;
