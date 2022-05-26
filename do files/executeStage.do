@@ -21,7 +21,9 @@ sim:/executestage/AluOpCode \
 sim:/executestage/Rsrc1 \
 sim:/executestage/Rsrc2 \
 sim:/executestage/Immediate \
+sim:/executestage/PCin \
 sim:/executestage/F \
+sim:/executestage/PCout \
 sim:/executestage/exeSrcSig \
 sim:/executestage/ccrIn \
 sim:/executestage/ccrOut \
@@ -55,4 +57,8 @@ force -freeze sim:/executestage/SETC 0 0
 force -freeze sim:/executestage/AluOpCode 100 0
 run
 force -freeze sim:/executestage/ExeSrc 1 0
+run
+#testing PCin PCout
+force -freeze sim:/executestage/PCin 16#AAAAACBA 0
+force -freeze sim:/executestage/Immediate 00000000000000000000000000000001 0
 run
