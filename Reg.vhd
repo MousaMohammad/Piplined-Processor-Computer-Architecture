@@ -17,7 +17,11 @@ BEGIN
         IF (Rst = '1') THEN
             RegOutput <= (OTHERS => '0');
         ELSIF rising_edge(Clk) THEN
-            IF (ENABLE = '1') THEN
+            IF (Enable = '1') THEN
+                RegOutput <= RegInput;
+            END IF;
+        ELSIF falling_edge(Clk) THEN
+            IF (Enable = '1') THEN
                 RegOutput <= RegInput;
             END IF;
         END IF;
