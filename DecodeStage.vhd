@@ -8,15 +8,16 @@ Entity DECODING IS
 		clk : in std_logic;
 		rst : in std_logic;
 		readEnable, writeEnable: in std_logic;
-		writeData : in std_logic_vector(31 downto 0);
+		writeData : in std_logic_vector(31 downto 0); ---flying
 		ImmValue : out std_logic_vector(31 downto 0);
 		readData1 : out std_logic_vector(31 downto 0);
 		readData2 : out std_logic_vector(31 downto 0);
-		dstAddress : out std_logic_vector(2 downto 0);
+		dstAddress : out std_logic_vector(2 downto 0); ---flying
         -------------control signals---------------------
         jumpControlSignals : out std_logic_vector(2 downto 0);
         ALUcontrolSignals : out std_logic_vector(2 downto 0);
         exSrc : out std_logic; --immediate value bit
+        Set_C : out std_logic; --set carry bit
         LoadStoreControlSignals : out std_logic_vector(2 downto 0);
         --------------document signals---------------------------
         writeBackSignal : out std_logic_vector(1 downto 0); ----- (00: No WB, 10: WB_ALU, 11: WB_MEM)
@@ -36,13 +37,11 @@ begin
     ------------------------------select the right register for read and write-------------------------------
     selDst <= instruction(19 downto 17) when  instruction(27 downto 26) = "00"
     else instruction(22 downto 20) when  instruction(27 downto 26) = "01"
-    else instruction(19 downto 17) when  instruction(27 downto 26) = "10";
 
     selSr1 <= instruction(19 downto 17) when  instruction(31 downto 26)  = "000000" or instruction(31 downto 26)  = "000100" ----NOT/INC instruction
     else instruction(25 downto 23);
 
-    selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00"
-    else instruction(22 downto 20) when  instruction(27 downto 26) = "10";
+    selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";
     ---------------------------------------------------------------------------------------------------------
 
     ------------------------------if I type-----------------------------------------------------------------
@@ -52,5 +51,6 @@ begin
 
     RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>selDst,writeData=>writeData,readData1=>readData1,readData2=>readData2);
 	
-	
+    CU: ENTITY work.ControlUnit port map(instruction=>instruction, jumpControlSignals=>jumpControlSignals,ALUcontrolSignals=>ALUcontrolSignals,exSrc=>exSrc,Set_C=>Set_C,LoadStoreControlSignals=>LoadStoreControlSignals,
+                                        writeBackSignal=>writeBackSignal,MemoryWriteReadSignal=>MemoryWriteReadSignal,SPcontrolSignals=>SPcontrolSignals);
 end DecodeFunc;

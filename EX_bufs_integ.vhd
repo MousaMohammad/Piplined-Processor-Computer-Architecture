@@ -31,6 +31,8 @@ signal PC_Ex : std_logic_vector(31 downto 0);
 
 begin
 
+    ------from decode stage to ID/EX buffer------
+    
     -- IDEx buf to execute stage --
     ID_Ex_buf: entity work.IDEx_buf port map(Rst,Clk,ExeSrc, SETC,AluOpCode,Rsrc1, Rsrc2, Immediate,PC,
         ExeSrc_o,SETC_o,AluOpCode_o,Rsrc1_o, Rsrc2_o, Immediate_o, PC_IDbuf,'0','0',open,open);
