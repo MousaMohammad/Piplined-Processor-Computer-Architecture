@@ -1,0 +1,25 @@
+NOP
+HLT
+SETC
+CALL 43203
+PUSH R7
+POP R2
+RET
+RTI
+INT 1
+OUT R4
+IN R5
+MOV R6, R7
+LDM R4, 17
+swap r1, r5
+jmp 1
+jz 2
+jn 3
+jc 4
+std r1, 13(r2)
+NOT R5
+add r1, r2, r3
+sub r4, r7, r6
+and r5, r4, r5
+iadd r1, r2, 147
+ldd r5, 5847(r4)
