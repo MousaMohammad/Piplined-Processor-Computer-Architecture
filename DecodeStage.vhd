@@ -8,11 +8,11 @@ Entity DECODING IS
 		clk : in std_logic;
 		rst : in std_logic;
 		readEnable, writeEnable: in std_logic;
-		writeData : in std_logic_vector(31 downto 0);
+		writeData : in std_logic_vector(31 downto 0); ---flying
 		ImmValue : out std_logic_vector(31 downto 0);
 		readData1 : out std_logic_vector(31 downto 0);
 		readData2 : out std_logic_vector(31 downto 0);
-		dstAddress : out std_logic_vector(2 downto 0);
+		dstAddress : out std_logic_vector(2 downto 0); ---flying
         -------------control signals---------------------
         jumpControlSignals : out std_logic_vector(2 downto 0);
         ALUcontrolSignals : out std_logic_vector(2 downto 0);
@@ -37,13 +37,11 @@ begin
     ------------------------------select the right register for read and write-------------------------------
     selDst <= instruction(19 downto 17) when  instruction(27 downto 26) = "00"
     else instruction(22 downto 20) when  instruction(27 downto 26) = "01"
-    else instruction(19 downto 17) when  instruction(27 downto 26) = "10";
 
     selSr1 <= instruction(19 downto 17) when  instruction(31 downto 26)  = "000000" or instruction(31 downto 26)  = "000100" ----NOT/INC instruction
     else instruction(25 downto 23);
 
-    selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00"
-    else instruction(22 downto 20) when  instruction(27 downto 26) = "10";
+    selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";
     ---------------------------------------------------------------------------------------------------------
 
     ------------------------------if I type-----------------------------------------------------------------
