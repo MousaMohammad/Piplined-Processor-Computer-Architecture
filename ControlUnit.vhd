@@ -45,9 +45,11 @@ begin
     else "111" when instruction(31 downto 26) = "001110"; -------JC
 
     ------------------------------------------SP CONTROL SIGNALS------------------------------------------------------
-    SPcontrolSignals <= "01" when instruction(31 downto 26) = "010101" OR instruction(31 downto 26) = "010110" ----------POP/RET
-    else "10" when instruction(31 downto 26) = "010001" OR instruction(31 downto 26) = "010010" ----------PUSH/CALL
-    else "00";----------NO CHANGE(False enable)?????
+    SPcontrolSignals <= "100" when instruction(31 downto 26) = "010101"  ----------POP
+    else "101" when instruction(31 downto 26) = "010110" ----RET
+    else "110" when instruction(31 downto 26) = "010001" ----------PUSH
+    Else "111" when instruction(31 downto 26) = "010010" ---CALL
+    else "000";----------NO SP
 
     ------------------------------------------SETC CONTROL SIGNALS------------------------------------------------------
     Set_C <= '1' when instruction(31 downto 26) = "011100" 

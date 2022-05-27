@@ -8,11 +8,11 @@ Entity DECODING IS
 		clk : in std_logic;
 		rst : in std_logic;
 		readEnable, writeEnable: in std_logic;
-		writeData : in std_logic_vector(31 downto 0); ---flying
+		writeData : in std_logic_vector(31 downto 0);
 		ImmValue : out std_logic_vector(31 downto 0);
 		readData1 : out std_logic_vector(31 downto 0);
 		readData2 : out std_logic_vector(31 downto 0);
-		dstAddress : out std_logic_vector(2 downto 0); ---flying
+		dstAddress : out std_logic_vector(2 downto 0);
         -------------control signals---------------------
         jumpControlSignals : out std_logic_vector(2 downto 0);
         ALUcontrolSignals : out std_logic_vector(2 downto 0);
