@@ -13,7 +13,8 @@ entity ExecuteStage is
     PCin:IN std_logic_vector(31 downto 0);
     CCR_o:OUT std_logic_vector(2 downto 0);
     PCout:OUT std_logic_vector(31 downto 0);
-    F:OUT std_logic_vector(31 downto 0)
+    F:OUT std_logic_vector(31 downto 0);
+    WriteData:OUT std_logic_vector(31 downto 0)
   ) ;
 end ExecuteStage;
 
@@ -39,5 +40,7 @@ begin
   CCR_o <= ccrIn;
   -- add PCin with immediate --
   PCadder: entity work.my_nadder GENERIC map(32) port map(PCin, Immediate,'0', PCout,open);
+  --- Rscr2 to WriteData --
+  WriteData <= Rsrc2;
 
 end archEx ; -- archEx
