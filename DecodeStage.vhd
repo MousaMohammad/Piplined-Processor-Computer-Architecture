@@ -22,7 +22,7 @@ Entity DECODING IS
         --------------document signals---------------------------
         writeBackSignal : out std_logic_vector(1 downto 0); ----- (00: No WB, 10: WB_ALU, 11: WB_MEM)
         MemoryWriteReadSignal : out std_logic; --(0 for write, 1 for read)
-        SPcontrolSignals : out std_logic_vector(1 downto 0) ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
+        SPcontrolSignals : out std_logic_vector(2 downto 0) ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
 	);
 	
 	     
@@ -51,6 +51,6 @@ begin
 
     RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>selDst,writeData=>writeData,readData1=>readData1,readData2=>readData2);
 	
-    CU: ENTITY work.ControlUnit port map(instruction=>instruction, jumpControlSignals=>jumpControlSignals,ALUcontrolSignals=>ALUcontrolSignals,exSrc=>exSrc,Set_C=>Set_C,LoadStoreControlSignals=>LoadStoreControlSignals,
+    CU: ENTITY work.ControlUnit port map(instruction=>instruction, jumpControlSignals=>jumpControlSignals,ALUcontrolSignals=>ALUcontrolSignals,Set_C=>Set_C,LoadStoreControlSignals=>LoadStoreControlSignals,
                                         writeBackSignal=>writeBackSignal,MemoryWriteReadSignal=>MemoryWriteReadSignal,SPcontrolSignals=>SPcontrolSignals);
 end DecodeFunc;

@@ -8,13 +8,13 @@ Entity ControlUnit IS
         -------------control signals---------------------
         jumpControlSignals : out std_logic_vector(2 downto 0);
         ALUcontrolSignals : out std_logic_vector(2 downto 0);
-        exSrc : out std_logic; --immediate value bit
+        --exSrc : out std_logic; --immediate value bit
         Set_C : out std_logic; --set carry bit
         LoadStoreControlSignals : out std_logic_vector(2 downto 0);
         --------------document signals---------------------------
         writeBackSignal : out std_logic_vector(1 downto 0);----- (00: No WB, 10: WB_ALU, 11: WB_MEM)
         MemoryWriteReadSignal : out std_logic; --(0 for write, 1 for read)
-        SPcontrolSignals : out std_logic_vector(1 downto 0) ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
+        SPcontrolSignals : out std_logic_vector(2 downto 0) ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
 	);
 	
 END Entity;
@@ -36,13 +36,15 @@ begin
     ------------------------------------------Load/Store CONTROL SIGNALS------------------------------------------------------
     loadStoreControlSignals <= "100" when instruction(31 downto 26) = "000101" ------LDM
     else "101" when instruction(31 downto 26) = "001001" -------LDD
-    else "110" when instruction(31 downto 26) = "001101"; ----------STD
+    else "110" when instruction(31 downto 26) = "001101" ----------STD
+    else "000";
     
     ------------------------------------------JUMP CONTROL SIGNALS------------------------------------------------------
     jumpControlSignals <= "100" when instruction(31 downto 26) = "000010" ----------JMP
     else "101" when instruction(31 downto 26) = "000110" -------JZ
     else "110" when instruction(31 downto 26) = "001010" ----------JN
-    else "111" when instruction(31 downto 26) = "001110"; -------JC
+    else "111" when instruction(31 downto 26) = "001110" -------JC
+    else "000";
 
     ------------------------------------------SP CONTROL SIGNALS------------------------------------------------------
     SPcontrolSignals <= "100" when instruction(31 downto 26) = "010101"  ----------POP
