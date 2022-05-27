@@ -22,4 +22,3 @@ add r1, r2, r3
 sub r4, r7, r6
 and r5, r4, r5
 iadd r1, r2, 147
-ldd r5, 5847(r4)
