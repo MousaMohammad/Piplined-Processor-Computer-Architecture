@@ -28,17 +28,20 @@ signal PC_IDbuf : std_logic_vector(31 downto 0);
 signal CCR_Ex : std_logic_vector(2 downto 0);
 signal Alu_Ex : std_logic_vector(31 downto 0);
 signal PC_Ex : std_logic_vector(31 downto 0);
+signal WriteData : std_logic_vector(31 downto 0);
 
 begin
 
+    ------from decode stage to ID/EX buffer------
+    
     -- IDEx buf to execute stage --
     ID_Ex_buf: entity work.IDEx_buf port map(Rst,Clk,ExeSrc, SETC,AluOpCode,Rsrc1, Rsrc2, Immediate,PC,
         ExeSrc_o,SETC_o,AluOpCode_o,Rsrc1_o, Rsrc2_o, Immediate_o, PC_IDbuf,'0','0',open,open);
         
     executeSTG: entity work.ExecuteStage port map(Rst,Clk,ExeSrc_o,SETC_o,AluOpCode_o,Rsrc1_o, Rsrc2_o, Immediate_o, PC_IDbuf,
-            CCR_Ex,PC_Ex,Alu_Ex);
+            CCR_Ex,PC_Ex,Alu_Ex,WriteData);
     -- execute stage to EX Mem buffer --
-    memBuf: entity work.ExMem_buf port map(Rst,Clk, CCR_Ex, PC_Ex, Alu_Ex,
+    memBuf: entity work.ExMem_buf port map(Rst,Clk, CCR_Ex, PC_Ex, Alu_Ex,WriteData
         PC_o, CCR_o, Alu_o);
 
 end architecture ; -- arch
