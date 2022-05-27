@@ -44,9 +44,9 @@ begin
     else "111" when instruction(31 downto 26) = "001110"; -------JC
 
     ------------------------------------------SP CONTROL SIGNALS------------------------------------------------------
-    SPcontrolSignals <= "00" when instruction(31 downto 26) = "000000" ----------NO CHANGE(False enable)?????
-    else "01" when instruction(31 downto 26) = "010101" OR instruction(31 downto 26) = "010110" ----------POP/RET
+    SPcontrolSignals <= "01" when instruction(31 downto 26) = "010101" OR instruction(31 downto 26) = "010110" ----------POP/RET
     else "10" when instruction(31 downto 26) = "010001" OR instruction(31 downto 26) = "010010"; ----------PUSH/CALL
+    else "00";----------NO CHANGE(False enable)?????
 
     
 end ControlUnitArch;

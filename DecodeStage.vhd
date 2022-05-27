@@ -52,5 +52,6 @@ begin
 
     RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>selDst,writeData=>writeData,readData1=>readData1,readData2=>readData2);
 	
-	
+    CU: ENTITY work.ControlUnit port map(instruction=>instruction, jumpControlSignals=>jumpControlSignals,ALUcontrolSignals=>ALUcontrolSignals,exSrc=>exSrc,Set_C=>Set_C,LoadStoreControlSignals=>LoadStoreControlSignals,
+                                        writeBackSignal=>writeBackSignal,MemoryWriteReadSignal=>MemoryWriteReadSignal,SPcontrolSignals=>SPcontrolSignals);
 end DecodeFunc;
