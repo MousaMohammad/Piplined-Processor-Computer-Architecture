@@ -4,12 +4,11 @@ USE ieee.std_logic_1164.ALL;
 ENTITY memoryStage IS
 
     PORT (
-        Clk : IN std_logic;
-        Rst : IN std_logic;
-        mem_read : IN std_logic;
-        mem_write : IN std_logic;
-        mem_address : IN std_logic_vector(31 downto 0);
-        mem_data_in : IN std_logic_vector(31 downto 0);
-        mem_data_out : OUT std_logic_vector(31 downto 0)
+        Clk : IN STD_LOGIC;
+        Rst : IN STD_LOGIC;
+        CCR : IN STD_LOGIC_VECTOR(2 downto 0);
+        jumpControlSignal: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        memWriteRead: IN STD_LOGIC;
+        SPControlSignal: IN STD_LOGIC_VECTOR(2 downto 0)
     );
 END ENTITY;
