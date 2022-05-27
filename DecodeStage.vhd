@@ -17,6 +17,7 @@ Entity DECODING IS
         jumpControlSignals : out std_logic_vector(2 downto 0);
         ALUcontrolSignals : out std_logic_vector(2 downto 0);
         exSrc : out std_logic; --immediate value bit
+        Set_C : out std_logic; --set carry bit
         LoadStoreControlSignals : out std_logic_vector(2 downto 0);
         --------------document signals---------------------------
         writeBackSignal : out std_logic_vector(1 downto 0); ----- (00: No WB, 10: WB_ALU, 11: WB_MEM)

@@ -9,6 +9,7 @@ Entity ControlUnit IS
         jumpControlSignals : out std_logic_vector(2 downto 0);
         ALUcontrolSignals : out std_logic_vector(2 downto 0);
         exSrc : out std_logic; --immediate value bit
+        Set_C : out std_logic; --set carry bit
         LoadStoreControlSignals : out std_logic_vector(2 downto 0);
         --------------document signals---------------------------
         writeBackSignal : out std_logic_vector(1 downto 0);----- (00: No WB, 10: WB_ALU, 11: WB_MEM)
@@ -45,9 +46,12 @@ begin
 
     ------------------------------------------SP CONTROL SIGNALS------------------------------------------------------
     SPcontrolSignals <= "01" when instruction(31 downto 26) = "010101" OR instruction(31 downto 26) = "010110" ----------POP/RET
-    else "10" when instruction(31 downto 26) = "010001" OR instruction(31 downto 26) = "010010"; ----------PUSH/CALL
+    else "10" when instruction(31 downto 26) = "010001" OR instruction(31 downto 26) = "010010" ----------PUSH/CALL
     else "00";----------NO CHANGE(False enable)?????
 
+    ------------------------------------------SETC CONTROL SIGNALS------------------------------------------------------
+    Set_C <= '1' when instruction(31 downto 26) = "011100" 
+    else '0';
     
 end ControlUnitArch;
 
