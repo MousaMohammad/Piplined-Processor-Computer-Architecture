@@ -1,6 +1,7 @@
 vsim -gui work.decoding
+vsim -gui work.decoding
 # vsim -gui work.decoding 
-# Start time: 21:55:56 on May 27,2022
+# Start time: 00:38:27 on May 28,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -10,12 +11,13 @@ vsim -gui work.decoding
 # Loading work.decoder(decoderarch)
 # Loading work.tristate(triarch)
 # Loading work.controlunit(controlunitarch)
-# ** Warning: (vsim-8683) Uninitialized out port /decoding/CU/exSrc has no driver.
-# This port will contribute value (U) to the signal network.
 add wave -position insertpoint  \
 sim:/decoding/instruction \
 sim:/decoding/clk \
 sim:/decoding/rst \
+sim:/decoding/readEnable \
+sim:/decoding/writeEnable \
+sim:/decoding/writeData \
 sim:/decoding/ImmValue \
 sim:/decoding/readData1 \
 sim:/decoding/readData2 \
@@ -26,13 +28,12 @@ sim:/decoding/exSrc \
 sim:/decoding/Set_C \
 sim:/decoding/LoadStoreControlSignals \
 sim:/decoding/writeBackSignal \
-sim:/decoding/MemoryWriteReadSignal \
-sim:/decoding/SPcontrolSignals
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: ahmed  Hostname: AHMED-DELL-SSD  ProcessID: 18212
-#           Attempting to use alternate WLF file "./wlftzagznz".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftzagznz
+sim:/decoding/MemoryReadEnableSignal \
+sim:/decoding/MemoryWriteEnableSignal \
+sim:/decoding/SPcontrolSignals \
+sim:/decoding/selSr1 \
+sim:/decoding/selSr2 \
+sim:/decoding/selDst
 force -freeze sim:/decoding/clk 1 0, 0 {50 ps} -r 100
 #R TYPE
 #NOT
