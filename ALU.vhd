@@ -34,9 +34,8 @@ BEGIN
     -- SUB --
     ELSE subRes WHEN opCode = "011"
     -- AND --
-    ELSE A AND B WHEN opCode = "100"
-    -- MOV -- 
-    ELSE A WHEN opCode = "101";    
+    ELSE A AND B WHEN opCode = "100";
+    
 
     INC :entity work.my_nadder GENERIC map(32) port map(A, "00000000000000000000000000000001",'0', incRes, incCout);
     ADD :entity work.my_nadder GENERIC map(32) port map(A, B, '0', addRes, addCout);
