@@ -9,6 +9,9 @@ entity IDEx_buf is
     AluOpCode_i :IN std_logic_vector(2 downto 0);
     Rsrc1_i, Rsrc2_i, Immediate_i : IN std_logic_vector(31 downto 0);
     PC_i : IN std_logic_vector(31 downto 0);
+    LoadStoreControlSignals_i : IN std_logic_vector(2 downto 0);
+    loadStoreControlSignals_o : IN std_logic_vector(2 downto 0);
+
     --- Ex ports outs ---
     ExeSrc_o, SETC_o : OUT STD_LOGIC;
     AluOpCode_o : OUT std_logic_vector(2 downto 0);
@@ -16,7 +19,11 @@ entity IDEx_buf is
     PC_o : OUT std_logic_vector(31 downto 0);
     --- Mem flying ports ---
     MemRead_i, MemWrite_i : IN STD_LOGIC;
-    MemRead_o, MemWrite_o : OUT STD_LOGIC
+    MemRead_o, MemWrite_o : OUT STD_LOGIC;
+    dstAddress_i :in STD_LOGIC_VECTOR(2 downto 0);
+    dstAddress_o :out STD_LOGIC_VECTOR(2 downto 0);
+    jumpControlSignals_i :in STD_LOGIC_VECTOR(2 downto 0);
+    jumpControlSignals_o :out STD_LOGIC_VECTOR(2 downto 0)
 
   ) ;
 end entity;
