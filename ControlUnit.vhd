@@ -13,7 +13,8 @@ Entity ControlUnit IS
         LoadStoreControlSignals : out std_logic_vector(2 downto 0);
         --------------document signals---------------------------
         writeBackSignal : out std_logic_vector(1 downto 0);----- (00: No WB, 10: WB_ALU, 11: WB_MEM)
-        MemoryWriteReadSignal : out std_logic; --(0 for write, 1 for read)
+        MemoryReadEnableSignal : out std_logic; 
+        MemoryWriteEnableSignal : out std_logic;
         SPcontrolSignals : out std_logic_vector(2 downto 0) ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
 	);
 	
@@ -31,8 +32,9 @@ begin
     else "11" when instruction(27 downto 26) = "01" else "00"; ---------MEMORY OPERATION-------
     
     ------------------------------------------Memory_w_r CONTROL SIGNALS------------------------------------------------------
-    memoryWriteReadSignal <= '0' when instruction(31 downto 26) = "001101" else '1';
-
+    MemoryReadEnableSignal <= '1' when instruction(31 downto 26) = "000101" or instruction(31 downto 26) = "001001"
+    else '0';
+    MemoryWriteEnableSignal <= '1' when instruction(31 downto 26) = "001101" else '0';
     ------------------------------------------Load/Store CONTROL SIGNALS------------------------------------------------------
     loadStoreControlSignals <= "100" when instruction(31 downto 26) = "000101" ------LDM
     else "101" when instruction(31 downto 26) = "001001" -------LDD
