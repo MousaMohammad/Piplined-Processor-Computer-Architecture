@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY MemWB_buf IS
     PORT (
-        Rst, Clk : IN STD_LOGIC;
+        Rst, Clk, Enable : IN STD_LOGIC;
         writeBackSignal_In : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         writeBackSignal_Out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
         Memory_Output_In : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -24,7 +24,7 @@ BEGIN
             Memory_Output_Out <= (OTHERS => '0');
             ALU_Output_Out <= (OTHERS => '0');
             writeAddressRegFile_Out <= (OTHERS => '0');
-        ELSIF rising_edge(Clk) THEN
+        ELSIF rising_edge(Clk) AND Enable = '1' THEN
             writeBackSignal_Out <= writeBackSignal_In;
             Memory_Output_Out <= Memory_Output_In;
             ALU_Output_Out <= ALU_Output_In;
