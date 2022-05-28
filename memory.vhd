@@ -5,7 +5,7 @@ USE IEEE.numeric_std.ALL;
 ENTITY memory IS
     PORT (
         Clk : IN STD_LOGIC;
-        writeEnable : IN STD_LOGIC;
+        writeEnable, readEnable : IN STD_LOGIC;
         address : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
         dataIn : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         dataOut : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
@@ -25,5 +25,6 @@ BEGIN
             END IF;
         END IF;
     END PROCESS;
-    dataOut <= ram(to_integer(unsigned(address)));
+    dataOut <= ram(to_integer(unsigned(address))) WHEN readEnable = '1' 
+    ELSE (Others => 'Z');
 END memArch;

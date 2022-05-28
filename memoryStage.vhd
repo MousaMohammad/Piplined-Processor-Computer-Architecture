@@ -17,8 +17,8 @@ ENTITY memoryStage IS
         PC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);                              -- Comes from EX/MEM buff
         RegFileAddressWB_In: IN STD_LOGIC_VECTOR(2 DOWNTO 0);               -- Comes from EX/MEM buff
         Memory_Output : IN STD_LOGIC_VECTOR(31 DOWNTO 0);                   -- Comes from memory
-        memWriteControlSignal_Mem : OUT STD_LOGIC;                          -- To be sent to memory
-        memReadControlSignal_Mem : OUT STD_LOGIC;                           -- To be sent to memory
+        memWriteControlSignal_Out : OUT STD_LOGIC;                          -- To be sent to memory
+        memReadControlSignal_Out : OUT STD_LOGIC;                           -- To be sent to memory
         writeData_Mem : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);                  -- To be sent to memory
         address_Out : OUT STD_LOGIC_VECTOR(19 DOWNTO 0);                    -- To be sent to memory
         writeBackControlSignal_Out: OUT STD_LOGIC_VECTOR(1 DOWNTO 0);       -- To be sent to MEM/WB buff
@@ -36,8 +36,8 @@ SIGNAL SP_After, SP_Before: STD_LOGIC_VECTOR(31 DOWNTO 0);
 BEGIN
 
 
-    memWriteControlSignal_Mem <= memWriteControlSignal_In;
-    memReadControlSignal_Mem <= memReadControlSignal_In;
+    memWriteControlSignal_Out <= memWriteControlSignal_In;
+    memReadControlSignal_Out <= memReadControlSignal_In;
 
     writeData_Mem <= ALU_Output_In WHEN SPControlSignal = "0110"             -- PUSH Only
     ELSE PC WHEN SPControlSignal = "0111"                                    -- CALL Only
