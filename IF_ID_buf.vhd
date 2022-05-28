@@ -8,10 +8,10 @@ clk : in std_logic;
 rst : in std_logic;
 instruction_i : in std_logic_vector(31 downto 0);
 readEnable_i : in std_logic;
-
+PC_i : in std_logic_vector(31 downto 0);
 readEnable_o : out std_logic;
-instruction_o : out std_logic_vector(31 downto 0)
-
+instruction_o : out std_logic_vector(31 downto 0);
+PC_o : out std_logic_vector(31 downto 0)
 
 );
 
@@ -26,9 +26,11 @@ begin
   if (Rst = '1') then
     readEnable_o <= '0';
     instruction_o <= (others => '0');
+    PC_o <= (others => '0');
   elsif rising_edge(Clk) then
     instruction_o <= instruction_i;
     readEnable_o <= readEnable_i;
+    PC_o <= PC_i;
   end if;
   end Process;
 

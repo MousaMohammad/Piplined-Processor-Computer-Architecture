@@ -35,25 +35,33 @@ END Entity;
 architecture DecodeFunc of decoding is
 	
 	signal selSr1,selSr2,selDst : std_logic_vector(2 downto 0);
+    signal readEnable_LDM : std_logic;
+    signal registerFileReadData1 : std_logic_vector(31 downto 0);
 begin
 
     ------------------------------select the right register for read and write-------------------------------
     selDst <= instruction(19 downto 17) when  instruction(27 downto 26) = "00"
     else instruction(22 downto 20) when  instruction(27 downto 26) = "01";
 
+    dstAddress <= selDst;
+
     selSr1 <= instruction(19 downto 17) when  instruction(31 downto 26)  = "000000" or instruction(31 downto 26)  = "000100" or instruction(31 downto 26)  = "010001"----NOT/INC/PUSH instruction
     else instruction(25 downto 23);
+    
 
     selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";
     ---------------------------------------------------------------------------------------------------------
+    readEnable_LDM <= '0' when instruction(31 downto 26) = "000101" --LDM case
+    else readEnable;
 
+    readData1 <= "0000000000000000" & instruction(19 downto 4) when instruction(31 downto 26) = "000101"
+    else registerFileReadData1; --LDM case
     ------------------------------if I type-----------------------------------------------------------------
     ImmValue <= "0000000000000000" & instruction(19 downto 4) when  instruction(27 downto 26) = "01";
     exSrc <= '1' when  instruction(27 downto 26) = "01" else '0';
     ---------------------------------------------------------------------------------------------------------
-
-    RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>selDst,writeData=>writeData,readData1=>readData1,readData2=>readData2);
+    RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable_LDM,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>selDst,writeData=>writeData,readData1=>registerFileReadData1,readData2=>readData2);
 	
     CU: ENTITY work.ControlUnit port map(instruction=>instruction, jumpControlSignals=>jumpControlSignals,ALUcontrolSignals=>ALUcontrolSignals,Set_C=>Set_C,LoadStoreControlSignals=>LoadStoreControlSignals,
-                                        writeBackSignal=>writeBackSignal,MemoryReadEnableSignal=>MemoryReadEnableSignal,MemoryWriteEnableSignal=>MemoryWriteEnableSignal,SPcontrolSignals=>SPcontrolSignals);
+                                        writeBackSignal=>writeBackSignal,MemoryReadEnableSignal=>MemoryReadEnableSignal,MemoryWriteEnableSignal=>MemoryWriteEnableSignal,SPcontrolSignals=>SPcontrolSignals,CCR_ENABLE=>CCR_ENABLE);
 end DecodeFunc;

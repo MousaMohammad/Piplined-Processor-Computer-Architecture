@@ -26,7 +26,7 @@ architecture ControlUnitArch of ControlUnit IS
 begin
     ------------------------------------------ALU CONTROL SIGNALS------------------------------------------------------
     ALUcontrolSignals <= instruction(30 downto 28) when  instruction(27 downto 26) = "00" ---------ALU OPERATION-------
-    else "010"  when instruction(27 downto 26) = "01"---------MEMORY OPERATION-------
+    else "010"  when instruction(31 downto 26) = "000001"---------MEMORY OPERATION-------
     else "101" when instruction(31 downto 26) = "000101" ------LDM
     else "010" when instruction(31 downto 26) = "001001" -------LDD
     else "010" when instruction(31 downto 26) = "001101"; ----------STD
