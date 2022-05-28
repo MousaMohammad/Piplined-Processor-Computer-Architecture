@@ -15,7 +15,7 @@ Entity ControlUnit IS
         writeBackSignal : out std_logic_vector(1 downto 0);----- (00: No WB, 10: WB_ALU, 11: WB_MEM)
         MemoryReadEnableSignal : out std_logic; 
         MemoryWriteEnableSignal : out std_logic;
-        SPcontrolSignals : out std_logic_vector(2 downto 0); ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
+        SPcontrolSignals : out std_logic_vector(3 downto 0); ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
         CCR_ENABLE : out std_logic
 	);
 	
