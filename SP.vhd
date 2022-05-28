@@ -17,7 +17,7 @@ BEGIN
     BEGIN
         IF Rst = '1' THEN
             SP_Out <= x"FFFFF";
-        ELSIF falling_edge(Clk) AND Enable = '1' THEN
+        ELSIF rising_edge(Clk) AND Enable = '1' THEN
             SP_Out <= SP_In;
         END IF;
     END PROCESS;
