@@ -13,7 +13,7 @@ END ENTITY;
 
 ARCHITECTURE SPArch OF SP_Module IS
 BEGIN
-    PROCESS (Rst)
+    PROCESS (Rst, Clk)
     BEGIN
         IF Rst = '1' THEN
             SP_Out <= x"FFFFF";
