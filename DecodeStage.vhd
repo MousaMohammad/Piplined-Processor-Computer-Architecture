@@ -9,6 +9,7 @@ Entity DECODING IS
 		rst : in std_logic;
 		readEnable, writeEnable: in std_logic;
 		writeData : in std_logic_vector(31 downto 0);
+        writeAddress : in std_logic_vector(2 downto 0);
 		ImmValue : out std_logic_vector(31 downto 0);
 		readData1 : out std_logic_vector(31 downto 0);
 		readData2 : out std_logic_vector(31 downto 0);
@@ -40,10 +41,10 @@ architecture DecodeFunc of decoding is
 begin
 
     ------------------------------select the right register for read and write-------------------------------
-    selDst <= instruction(19 downto 17) when  instruction(27 downto 26) = "00"
+    dstAddress <= instruction(19 downto 17) when  instruction(27 downto 26) = "00"
     else instruction(22 downto 20) when  instruction(27 downto 26) = "01";
 
-    dstAddress <= selDst;
+    --dstAddress <= selDst;
 
     selSr1 <= instruction(19 downto 17) when  instruction(31 downto 26)  = "000000" or instruction(31 downto 26)  = "000100" or instruction(31 downto 26)  = "010001"----NOT/INC/PUSH instruction
     else instruction(25 downto 23);
@@ -60,7 +61,7 @@ begin
     ImmValue <= "0000000000000000" & instruction(19 downto 4) when  instruction(27 downto 26) = "01";
     exSrc <= '1' when  instruction(27 downto 26) = "01" else '0';
     ---------------------------------------------------------------------------------------------------------
-    RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable_LDM,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>selDst,writeData=>writeData,readData1=>registerFileReadData1,readData2=>readData2);
+    RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable_LDM,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>writeAddress,writeData=>writeData,readData1=>registerFileReadData1,readData2=>readData2);
 	
     CU: ENTITY work.ControlUnit port map(instruction=>instruction, jumpControlSignals=>jumpControlSignals,ALUcontrolSignals=>ALUcontrolSignals,Set_C=>Set_C,LoadStoreControlSignals=>LoadStoreControlSignals,
                                         writeBackSignal=>writeBackSignal,MemoryReadEnableSignal=>MemoryReadEnableSignal,MemoryWriteEnableSignal=>MemoryWriteEnableSignal,SPcontrolSignals=>SPcontrolSignals,CCR_ENABLE=>CCR_ENABLE);

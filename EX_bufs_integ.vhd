@@ -8,6 +8,7 @@ entity exBufsInteg is
 		rst : in std_logic;
 		readEnable, writeEnable: in std_logic;
 		writeData_ToDecode : in std_logic_vector(31 downto 0);
+    writeAddress_ToDecode : in std_logic_vector(2 downto 0);
     --- Outputs ---
     PC_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     CCR_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -66,6 +67,7 @@ begin
       readEnable => readEnable,
       writeEnable => writeEnable,
       writeData => writeData_ToDecode,
+      writeAddress => writeAddress_ToDecode, --change to dstAddress from memBuf to test WB
       -- ouputs from decode stage to ID/EX buffer --
       ImmValue => Immediate_dec_IDEX,
       readData1 => Rsrc1_dec_IDEX,

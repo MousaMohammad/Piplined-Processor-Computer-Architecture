@@ -1,4 +1,3 @@
-vsim -gui work.exbufsinteg
 # vsim -gui work.exbufsinteg 
 # Start time: 17:13:02 on May 28,2022
 # Loading std.standard
@@ -74,9 +73,43 @@ sim:/exbufsinteg/SPcontrolSignals_IDEX_EXMEM
 force -freeze sim:/exbufsinteg/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/exbufsinteg/rst 1 0
 run
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: mody7  Hostname: LAPTOP-07B90H95  ProcessID: 8860
+#           Attempting to use alternate WLF file "./wlftrbzsia".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftrbzsia
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: mody7  Hostname: LAPTOP-07B90H95  ProcessID: 8860
+#           Attempting to use alternate WLF file "./wlftgysvfq".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftgysvfq
 force -freeze sim:/exbufsinteg/rst 0 0
-force -freeze sim:/exbufsinteg/instruction 00010000000000000000000000000000 0
+force -freeze sim:/exbufsinteg/writeEnable 1 0
 force -freeze sim:/exbufsinteg/readEnable 1 0
+force -freeze sim:/exbufsinteg/writeData_ToDecode 16#AAAAAAAA 0
+add wave -position insertpoint  \
+sim:/exbufsinteg/writeAddress_ToDecode
+force -freeze sim:/exbufsinteg/writeAddress_ToDecode 000 0
 run
-force -freeze sim:/exbufsinteg/instruction 00010100000000000000000000000000 0
+force -freeze sim:/exbufsinteg/writeAddress_ToDecode 001 0
+force -freeze sim:/exbufsinteg/writeData_ToDecode 16#BBBBBBBB 0
 run
+#ADD
+force -freeze sim:/exbufsinteg/writeEnable 0 0
+force -freeze sim:/exbufsinteg/instruction 00100000000100000000000000000000 0
+run
+#IADD
+force -freeze sim:/exbufsinteg/instruction 00000100000100000010000000000000 0
+run
+force -freeze sim:/exbufsinteg/instruction 01000000000100000010000000000000 0
+run
+run
+run
+force -freeze sim:/exbufsinteg/instruction 01010010000100000010000000000000 0
+run
+run
+run
+force -freeze sim:/exbufsinteg/instruction 00110000000100000010000000000000 0
+run
+run
+
