@@ -32,8 +32,6 @@ entity IDEx_buf is
     CCR_ENABLE_i : IN STD_LOGIC;
     CCR_ENABLE_o : OUT STD_LOGIC
 
-
-
   ) ;
 end entity;
 
