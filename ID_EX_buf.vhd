@@ -23,8 +23,6 @@ entity IDEx_buf is
     dstAddress_o :out STD_LOGIC_VECTOR(2 downto 0);
     jumpControlSignals_i :in STD_LOGIC_VECTOR(2 downto 0);
     jumpControlSignals_o :out STD_LOGIC_VECTOR(2 downto 0);
-    Set_C_i :in STD_LOGIC;
-    Set_C_o :out STD_LOGIC;
     writeBackSignal_i :in STD_LOGIC_VECTOR(1 downto 0);
     writeBackSignal_o :out STD_LOGIC_VECTOR(1 downto 0);
     SPcontrolSignals_i : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -54,7 +52,6 @@ begin
     MemWrite_o <= '0';
     dstAddress_o <= (others => '0');
     jumpControlSignals_o <= (others => '0');
-    Set_C_o <= '0';
     writeBackSignal_o <= (others => '0');
     SPcontrolSignals_o <= (others => '0');
     CCR_ENABLE_o <= '0';
@@ -72,7 +69,6 @@ begin
     MemWrite_o <= MemWrite_i;
     dstAddress_o <= dstAddress_i;
     jumpControlSignals_o <= jumpControlSignals_i;
-    Set_C_o <= Set_C_i;
     writeBackSignal_o <= writeBackSignal_i;
     SPcontrolSignals_o <= SPcontrolSignals_i;
     CCR_ENABLE_o <= CCR_ENABLE_i;

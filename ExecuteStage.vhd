@@ -11,6 +11,7 @@ entity ExecuteStage is
     Rsrc2:IN std_logic_vector(31 downto 0);
     Immediate:IN std_logic_vector(31 downto 0);
     PCin:IN std_logic_vector(31 downto 0);
+    CCR_en:IN std_logic;
     CCR_o:OUT std_logic_vector(2 downto 0);
     PCout:OUT std_logic_vector(31 downto 0);
     F:OUT std_logic_vector(31 downto 0);
@@ -36,7 +37,7 @@ begin
   -- wire alu with flag control --
   flagCU: entity work.flagControl port map(aluResult, cToflag, SETC, ccrIn,ccrOut,F);
   -- wire CCR register with flag control --
-  ccr: entity work.Reg GENERIC map(3) port map(Rst, Clk, '1',ccrOut, ccrIn);
+  ccr: entity work.Reg GENERIC map(3) port map(Rst, Clk, CCR_en,ccrOut, ccrIn);
   CCR_o <= ccrIn;
   -- add PCin with immediate --
   PCadder: entity work.my_nadder GENERIC map(32) port map(PCin, Immediate,'0', PCout,open);
