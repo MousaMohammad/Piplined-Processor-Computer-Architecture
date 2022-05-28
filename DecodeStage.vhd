@@ -50,7 +50,7 @@ begin
     else instruction(25 downto 23);
     
 
-    selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";
+    selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";--(001101-STD)
     ---------------------------------------------------------------------------------------------------------
     readEnable_LDM <= '0' when instruction(31 downto 26) = "000101" --LDM case
     else readEnable;
