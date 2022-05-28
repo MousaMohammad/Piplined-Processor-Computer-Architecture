@@ -55,16 +55,18 @@ begin
     else "000";
 
     ------------------------------------------SP CONTROL SIGNALS------------------------------------------------------
-    SPcontrolSignals <= "100" when instruction(31 downto 26) = "010101"  ----------POP
-    else "101" when instruction(31 downto 26) = "010110" ----RET
-    else "110" when instruction(31 downto 26) = "010001" ----------PUSH
-    Else "111" when instruction(31 downto 26) = "010010" ---CALL
-    else "000";----------NO SP
+    SPcontrolSignals <= "1000" when instruction(31 downto 26) = "010101"  ----------POP
+    else "1001" when instruction(31 downto 26) = "010110" ----RET
+    else "1010" when instruction(31 downto 26) = "010001" ----------PUSH
+    Else "1011" when instruction(31 downto 26) = "010010" ---CALL
+    else "1100" when instruction(31 downto 26) = "011010" --INT
+    else "1101" when instruction(31 downto 26) = "011110" --RTI
+    else "0000";----------NO SP
 
     ------------------------------------------SETC CONTROL SIGNALS------------------------------------------------------
     Set_C <= '1' when instruction(31 downto 26) = "011100" 
     else '0';
-
+  
     ------------------------------------------CCR CONTROL SIGNALS------------------------------------------------------
     CCR_ENABLE <= '1' when instruction(31) = '0' and instruction(27 downto 26) = "00"
     else '1' when instruction(31 downto 26) = "000001" or instruction(31 downto 26) = "011110"
