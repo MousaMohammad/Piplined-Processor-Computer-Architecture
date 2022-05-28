@@ -29,7 +29,10 @@ begin
     else "010"  when instruction(31 downto 26) = "000001"---------MEMORY OPERATION-------
     else "101" when instruction(31 downto 26) = "000101" ------LDM
     else "010" when instruction(31 downto 26) = "001001" -------LDD
-    else "010" when instruction(31 downto 26) = "001101"; ----------STD
+    else "010" when instruction(31 downto 26) = "001101" ----------STD
+    else "101" when instruction(31 downto 26) = "010101" ------POP
+    else "101" when instruction(31 downto 26) = "010001"; ------PUSH
+
     ------------------------------------------WB CONTROL SIGNALS------------------------------------------------------
     writeBackSignal <= "10" when instruction(27 downto 26) = "00" or instruction(31 downto 26) = "000001" ---------ALU OPERATION-------
     else "11" when instruction(27 downto 26) = "01" else "00"; ---------MEMORY OPERATION-------
