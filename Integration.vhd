@@ -1,7 +1,7 @@
 Library ieee;
 Use ieee.std_logic_1164.all;
 
-entity exBufsInteg is
+entity Integration is
   port (
     instruction:IN std_logic_vector (31 DOWNTO 0);
 		clk : in std_logic;
@@ -23,7 +23,7 @@ entity exBufsInteg is
   ) ;
 end entity;
 
-architecture arch of exBufsInteg is
+architecture arch of Integration is
  --- singals from decode stage to IDEx buf --
  signal ExeSrc_dec_IDEX, SETC_dec_IDEX : STD_LOGIC;
  signal AluOpCode_dec_IDEX : std_logic_vector(2 downto 0);
