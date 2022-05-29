@@ -10,23 +10,24 @@ z2
 cModel Technology
 dC:/Users/mousa/Documents/CCEC/Computer Archit/Modelsim/LabExam
 Ealu
-Z0 w1653686399
+Z0 w1653685247
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z3 dD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture
-Z4 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ALU.vhd
-Z5 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ALU.vhd
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1237
+Z3 dD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture
+Z4 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd
+Z5 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd
 l0
-L4
+L4 1
 V`cTF4_HG7;@>UohZ>Vf_e0
 !s100 Bi_Io19DLY:Tn68<o@WUN1
-Z6 OV;C;10.5b;63
+Z6 OV;C;2020.1;71
 32
-Z7 !s110 1653743117
+Z7 !s110 1653861559
 !i10b 1
-Z8 !s108 1653743117.000000
-Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ALU.vhd|
-Z10 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ALU.vhd|
+Z8 !s108 1653861558.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd|
+Z10 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd|
 !i113 1
 Z11 o-work work -2002 -explicit
 Z12 tExplicit 1 CvgOpt 0
@@ -35,8 +36,9 @@ Z13 DEx4 work 9 my_nadder 0 22 1aXOU3kVjSeQbH>nEbSg40
 R1
 R2
 Z14 DEx4 work 3 alu 0 22 `cTF4_HG7;@>UohZ>Vf_e0
+!i122 1237
 l27
-L15
+L15 37
 VF5]]n@O5XoeK[8ZCDnjCf0
 !s100 ^?1]Ma@bTU8E=?9gz;AXk0
 R6
@@ -52,282 +54,291 @@ R12
 Ebuf
 Z15 w1653335844
 R1
-Z16 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+R2
 !i122 3
-Z17 dD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture
-Z18 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
-Z19 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
+R3
+Z16 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
+Z17 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
 l0
 L4 1
 VEV`^5@^S0Xm5B<UzZi]TU0
 !s100 P`T_KEb:Jn`C1BTGQU@EO1
-Z20 OV;C;2020.1;71
+R6
 32
-Z21 !s110 1653335879
+Z18 !s110 1653335879
 !i10b 1
-Z22 !s108 1653335879.000000
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
-Z24 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
+Z19 !s108 1653335879.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
+Z21 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
 !i113 1
 R11
 R12
 Abuf_arch
 R1
-R16
+R2
 DEx4 work 3 buf 0 22 EV`^5@^S0Xm5B<UzZi]TU0
 !i122 3
 l18
 L17 21
 V@970LNnfLR;fG9fWT=`g`2
 !s100 Y3FK]G;EK_VH5F7EFWYHd0
-R20
+R6
 32
-R21
+R18
 !i10b 1
-R22
-R23
-R24
+R19
+R20
+R21
 !i113 1
 R11
 R12
 Econtrolunit
-Z25 w1653700353
+Z22 w1653860009
 R1
 R2
+!i122 1238
 R3
-Z26 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd
-Z27 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd
+Z23 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd
+Z24 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd
 l0
-L5
+L5 1
 VWDa348>60`2ln<RS3W0?=3
 !s100 ;:AUQCK_d<4QD8;M`?Gcc1
 R6
 32
-Z28 !s110 1653743115
+R7
 !i10b 1
-Z29 !s108 1653743115.000000
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd|
-Z31 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd|
+Z25 !s108 1653861559.000000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd|
+Z27 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd|
 !i113 1
 R11
 R12
 Acontrolunitarch
 R1
 R2
-Z32 DEx4 work 11 controlunit 0 22 WDa348>60`2ln<RS3W0?=3
+Z28 DEx4 work 11 controlunit 0 22 WDa348>60`2ln<RS3W0?=3
+!i122 1238
 l26
-L24
-VjzDc<VEdIHF7hhJ3Hb;fh0
-!s100 dGLO2za=7hi`bW3R;EfU^0
+L24 61
+VEbL]d]di=XCb58Dn<3_Mz1
+!s100 Q10o:^21DXR^^@92n[K2k2
 R6
 32
-R28
+R7
 !i10b 1
-R29
-R30
-R31
+R25
+R26
+R27
 !i113 1
 R11
 R12
 Edecoder
-Z33 w1653517799
+Z29 w1653512472
 R1
 R2
+!i122 1239
 R3
-Z34 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd
-Z35 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd
+Z30 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd
+Z31 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd
 l0
-L3
+L3 1
 VJSGUMil5B>kHiZc;7ah1^3
 !s100 WkL`0l2cjT]Y<U<JG@cSP2
 R6
 32
-R28
+R7
 !i10b 1
-R29
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd|
-Z37 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd|
+R25
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd|
+Z33 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd|
 !i113 1
 R11
 R12
 Adecoderarch
 R1
 R2
-Z38 DEx4 work 7 decoder 0 22 JSGUMil5B>kHiZc;7ah1^3
+Z34 DEx4 work 7 decoder 0 22 JSGUMil5B>kHiZc;7ah1^3
+!i122 1239
 l12
-L11
+L11 22
 VLWWGj?aZ9`]H0T;OPcPhQ0
 !s100 0>WBgic<==G9Yz6L1DB^:0
 R6
 32
-R28
+R7
 !i10b 1
-R29
-R36
-R37
+R25
+R32
+R33
 !i113 1
 R11
 R12
 Edecoding
-Z39 w1653700364
+Z35 w1653860654
 R1
 R2
+!i122 1240
 R3
-Z40 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd
-Z41 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd
+Z36 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd
+Z37 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd
 l0
-L5
-V2i2HO6IIbV:?OD^`jh4Vh2
-!s100 <H>DM<PPW13mnM3i`9IE>3
+L5 1
+VGTL0z7ETiH9`lXNCa`?9N1
+!s100 FW[Kdd6kiba8mzKc?R^]J2
 R6
 32
-R28
+R7
 !i10b 1
-R29
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd|
-Z43 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd|
+R25
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd|
+Z39 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd|
 !i113 1
 R11
 R12
 Adecodefunc
-R32
-Z44 DEx4 work 7 regfile 0 22 _mG^Qg?1G5[Y13J;IXLNM2
+R28
+Z40 DEx4 work 7 regfile 0 22 _mG^Qg?1G5[Y13J;IXLNM2
 R1
 R2
-DEx4 work 8 decoding 0 22 2i2HO6IIbV:?OD^`jh4Vh2
-l38
-L35
-Vk]]7K[WYdPW:8ZbeN76m13
-!s100 Fh_@[5LmXYz6[d;fVkl:30
+Z41 DEx4 work 8 decoding 0 22 GTL0z7ETiH9`lXNCa`?9N1
+!i122 1240
+l39
+L34 40
+Vh`Koeh>_O:8fmVAWCU]:K2
+!s100 ^l=L>IJ]gMVQ4^lW8Kk`G0
 R6
 32
-R28
+R7
 !i10b 1
-R29
-R42
-R43
+R25
+R38
+R39
 !i113 1
 R11
 R12
 Eexbufsinteg
-w1653743221
+w1653838249
 R1
 R2
+!i122 219
 R3
-8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_bufs_integ.vhd
-FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_bufs_integ.vhd
+8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/decodeToBuffer.vhd
+FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/decodeToBuffer.vhd
 l0
-L4
-VI7PZI99S13jV[NNP@K:Q=3
-!s100 2?YcQ7zF]VPNN73c^FBJa2
+L4 1
+V[YRX]DGgA8WL8V3Y?kD9l0
+!s100 n=6S`@A<_:<1JMg0o4i2N2
 R6
 32
-!s110 1653743226
+!s110 1653847113
 !i10b 1
-!s108 1653743226.000000
-!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_bufs_integ.vhd|
-!s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_bufs_integ.vhd|
+!s108 1653847113.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/decodeToBuffer.vhd|
+!s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/decodeToBuffer.vhd|
 !i113 1
 R11
 R12
 Eexecutestage
-R0
+Z42 w1653755410
 R1
 R2
+!i122 1242
 R3
-Z45 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd
-Z46 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd
+Z43 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd
+Z44 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd
 l0
-L4
-VAe7Zmje_PIiPf4:Qj;UZX3
-!s100 >9E608<86LS6onmJWh8Xa3
+L4 1
+VjZMe[ckWfhmU:I92Cc`7j2
+!s100 GNJFH;:DJABn6jj@Y`b]m0
 R6
 32
-Z47 !s110 1653743116
+Z45 !s110 1653861560
 !i10b 1
-Z48 !s108 1653743116.000000
-Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd|
-Z50 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd|
+R25
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd|
+Z47 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd|
 !i113 1
 R11
 R12
 Aarchex
 R13
-Z51 DEx4 work 3 reg 0 22 b5nFI59^83LczK_W0QU6`0
-Z52 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z53 DEx4 work 11 flagcontrol 0 22 SVdBeB4Y73z3C8k672fT@3
+Z48 DEx4 work 3 reg 0 22 b5nFI59^83LczK_W0QU6`0
+Z49 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z50 DEx4 work 11 flagcontrol 0 22 SVdBeB4Y73z3C8k672fT@3
 R14
-Z54 DEx4 work 9 mux2_nbit 0 22 YzLPOjLNJ@MdPMFGWRKQ33
+Z51 DEx4 work 9 mux2_nbit 0 22 YzLPOjLNJ@MdPMFGWRKQ33
 R1
 R2
-DEx4 work 12 executestage 0 22 Ae7Zmje_PIiPf4:Qj;UZX3
-l31
-L21
-VcNR9=8AliJl80B3EQk17<0
-!s100 0G<P5]]IOlIbG3EKCCd;23
+Z52 DEx4 work 12 executestage 0 22 jZMe[ckWfhmU:I92Cc`7j2
+!i122 1242
+l32
+L22 26
+V<8fXHl2<BC_Lmf1VDo]6I2
+!s100 FjdSZzDU8T[9;ViTVS^_13
 R6
 32
-R47
+R45
 !i10b 1
-R48
-R49
-R50
+R25
+R46
+R47
 !i113 1
 R11
 R12
 Eexmem_buf
-Z55 w1653732690
+Z53 w1653857977
 R1
-R16
-!i122 50
-R17
-Z56 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd
-Z57 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd
+R2
+!i122 1241
+R3
+Z54 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd
+Z55 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd
 l0
 L4 1
-V:l?c]VBW@ZcN=7dZY]Q881
-!s100 9>1a>?GLb1f8TZ[T9h>JS3
-R20
+VWI9Wd@2UmlVPF1Ro?aOfB1
+!s100 Lio9hzU3WUQZAT_0RQa0<0
+R6
 32
-Z58 !s110 1653767002
+R7
 !i10b 1
-Z59 !s108 1653767002.000000
-Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd|
-Z61 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd|
+R25
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd|
+Z57 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/EX_MEM_buf.vhd|
 !i113 1
 R11
 R12
 Aarch
 R1
-R16
-Z62 DEx4 work 9 exmem_buf 0 22 :l?c]VBW@ZcN=7dZY]Q881
-!i122 50
-l32
-L31 29
-V3Q?dbSDia9LDHo5JWN4l23
-!s100 `IWlAWDSESefkk3800MLH3
-R20
+R2
+Z58 DEx4 work 9 exmem_buf 0 22 WI9Wd@2UmlVPF1Ro?aOfB1
+!i122 1241
+l34
+L33 31
+V<?[X_S=LFimFCP@4C]i3>3
+!s100 72Gk4ACOS;>zBQ8;XVTVb1
+R6
 32
-R58
+R7
 !i10b 1
-R59
-R60
-R61
+R25
+R56
+R57
 !i113 1
 R11
 R12
 Eexwb_buf
-R33
+Z59 w1653517799
 R1
-R2
-R3
-Z63 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_WB_buf.vhd
-Z64 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_WB_buf.vhd
+Z60 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z61 dD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture
+Z62 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_WB_buf.vhd
+Z63 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/EX_WB_buf.vhd
 l0
 L4
 V6@Dgem>SCmCXQdQKa6<Uk0
 !s100 lMN_Gi1GU]L4zenk=YKXQ2
-R6
+Z64 OV;C;10.5b;63
 32
 Z65 !s110 1653573941
 !i10b 1
@@ -339,13 +350,13 @@ R11
 R12
 Aarchbuf
 R1
-R2
+R60
 DEx4 work 8 exwb_buf 0 22 6@Dgem>SCmCXQdQKa6<Uk0
 l13
 L11
 V`WIQmE^14=ejdOCAOl6L`0
 !s100 ;1E[A:9^RlDhga9Ih9_5E1
-R6
+R64
 32
 R65
 !i10b 1
@@ -355,397 +366,503 @@ R68
 !i113 1
 R11
 R12
-Efetchstage
-Z69 w1653671927
-R52
+Efetchcomponent
+Z69 w1653840561
+R49
 R1
 R2
+!i122 1243
 R3
-Z70 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd
-Z71 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd
+Z70 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/fetchComponent.vhd
+Z71 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/fetchComponent.vhd
 l0
-L5
-VRI`?V^?d:5<0Pg<]P6;gQ1
-!s100 WX4;B3^=b4W[J^zJVz;1K2
+L5 1
+VEH?1AG?ENFnd_I_h1bA422
+!s100 Zo^O]M^K_cbCo:jOjbL@V1
 R6
 32
-R47
+R45
 !i10b 1
-R48
-Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd|
-Z73 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd|
+Z72 !s108 1653861560.000000
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/fetchComponent.vhd|
+Z74 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/fetchComponent.vhd|
+!i113 1
+R11
+R12
+Afetchcomponentarch
+R49
+R1
+R2
+Z75 DEx4 work 14 fetchcomponent 0 22 EH?1AG?ENFnd_I_h1bA422
+!i122 1243
+l18
+L15 18
+VXEXoG8o[gclJf5h^MTYm20
+!s100 K15mTOkih@S:?MRTjcHK;2
+R6
+32
+R45
+!i10b 1
+R72
+R73
+R74
+!i113 1
+R11
+R12
+Efetchstage
+R69
+R49
+R1
+R2
+!i122 1244
+R3
+Z76 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd
+Z77 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd
+l0
+L5 1
+Vb]:W`in4mkJ@hZSZZ585>3
+!s100 DEdk0YJ6lCea4ng2;A@?_0
+R6
+32
+R45
+!i10b 1
+R72
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd|
+Z79 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd|
 !i113 1
 R11
 R12
 Afetcharch
-R52
+R75
+R49
 R1
 R2
-DEx4 work 10 fetchstage 0 22 RI`?V^?d:5<0Pg<]P6;gQ1
-l40
-L19
-Ve<6Yf4URzFNkjGzSP:K;n3
-!s100 ;KR1G[m>5Rc7@[V6H1<X72
+Z80 DEx4 work 10 fetchstage 0 22 b]:W`in4mkJ@hZSZZ585>3
+!i122 1244
+l27
+L23 23
+ViBjc?lAJ1=m]TRYVme0^O0
+!s100 Uno7dgbTkR]S8S_6:lje^3
 R6
 32
-R47
+R45
 !i10b 1
-R48
 R72
-R73
+R78
+R79
 !i113 1
 R11
 R12
 Eflagcontrol
-R33
-R52
+Z81 w1653770376
+R49
 R1
 R2
+!i122 1245
 R3
-Z74 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd
-Z75 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd
+Z82 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd
+Z83 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd
 l0
-L5
+L5 1
 VSVdBeB4Y73z3C8k672fT@3
 !s100 n2g0^PlJH6=3=WQgoIa@M1
 R6
 32
-R47
+R45
 !i10b 1
-R48
-Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd|
-Z77 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd|
+R72
+Z84 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd|
+Z85 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd|
 !i113 1
 R11
 R12
 Aflagarch
-R52
+R49
 R1
 R2
-R53
+R50
+!i122 1245
 l17
-L16
-V?_;8f]7^d?Uaf9K>HDOZj1
-!s100 @Pch0:<h1OWD<eOb>mfaz1
+L16 13
+VDVV[<SeU9OIM@;Xeh9J`K0
+!s100 G<@E]:z<U?RCMEz=cEb1V1
 R6
 32
-R47
+R45
 !i10b 1
-R48
-R76
-R77
+R72
+R84
+R85
 !i113 1
 R11
 R12
 Eidex_buf
-Z78 w1653741750
+Z86 w1653858157
 R1
 R2
+!i122 1246
 R3
-Z79 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd
-Z80 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd
+Z87 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd
+Z88 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd
 l0
-L4
-V_BV0O1n><A@6gL7]QEg1I1
-!s100 gl^ID1HIhDT9aG]5AX;UM1
+L4 1
+V0Bb^FN6JLk6mS6RcY6WMg2
+!s100 2TOX9@cDeg]@C7cA6h]GA0
 R6
 32
-R47
+R45
 !i10b 1
-R48
-Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd|
-Z82 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd|
+R72
+Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd|
+Z90 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd|
 !i113 1
 R11
 R12
 Aarchbuf
 R1
 R2
-DEx4 work 8 idex_buf 0 22 _BV0O1n><A@6gL7]QEg1I1
-l41
-L39
-VeU`nhUJA=f:B_:7H>XfhS0
-!s100 WDVhX]J[k4QKY4Y2ALPhF2
+Z91 DEx4 work 8 idex_buf 0 22 0Bb^FN6JLk6mS6RcY6WMg2
+!i122 1246
+l39
+L37 42
+VGzZIZbW9j::Y=JOWjjlV:1
+!s100 <a<<HTRz<lK[`bk50b`Pd3
 R6
 32
-R47
+R45
 !i10b 1
-R48
-R81
-R82
+R72
+R89
+R90
 !i113 1
 R11
 R12
 Eifid_buf
-Z83 w1653672163
+Z92 w1653857958
 R1
 R2
+!i122 1247
 R3
-Z84 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd
-Z85 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd
+Z93 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd
+Z94 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd
 l0
-L4
-V?_WV7ga1K10?=D1F4U?fk3
-!s100 l5d2][a=VPbzGLcVi^91D0
+L4 1
+VfC@i]n1T2@JC2h>Ecz?En2
+!s100 Hj3c`okklOnUhEHi=ahz:3
 R6
 32
-R47
+Z95 !s110 1653861561
 !i10b 1
-R48
-Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd|
-Z87 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd|
+Z96 !s108 1653861561.000000
+Z97 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd|
+Z98 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd|
 !i113 1
 R11
 R12
 Aifid_buf_arch
 R1
 R2
-DEx4 work 8 ifid_buf 0 22 ?_WV7ga1K10?=D1F4U?fk3
-l22
-L20
-VPkP8WR;e6jCVIb6eCKz?C1
-!s100 _96bR5<DWJi>>5Jc6]_c10
+Z99 DEx4 work 8 ifid_buf 0 22 fC@i]n1T2@JC2h>Ecz?En2
+!i122 1247
+l23
+L21 18
+VF3G]I:P7Lj;dW71T@Z02B1
+!s100 og48540j<Xo5jW7TiYe_?0
 R6
 32
-R47
+R95
 !i10b 1
-R48
-R86
-R87
+R96
+R97
+R98
+!i113 1
+R11
+R12
+Eintegration
+Z100 w1653861554
+R1
+R2
+!i122 1248
+R3
+Z101 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Integration.vhd
+Z102 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Integration.vhd
+l0
+L4 1
+VOKA[@KKoI@9JB1B6R^``K0
+!s100 LIk@4Bmo3BAm1j:_KbGzU1
+R6
+32
+R95
+!i10b 1
+R96
+Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Integration.vhd|
+Z104 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Integration.vhd|
+!i113 1
+R11
+R12
+Aarch
+Z105 DEx4 work 8 wb_stage 0 22 gVm1kXgZS9iFj=N`L6X`o0
+Z106 DEx4 work 9 memwb_buf 0 22 2_MI[8g8L6zYlH6@XF;Z`0
+Z107 DEx4 work 11 memorystage 0 22 :VCnZcYVMJ94XT5OV?DLS2
+R58
+R52
+R91
+R41
+R99
+R80
+R49
+Z108 DEx4 work 6 memory 0 22 [VomLP2TF:S5X7864F6cl2
+R1
+R2
+DEx4 work 11 integration 0 22 OKA[@KKoI@9JB1B6R^``K0
+!i122 1248
+l103
+L14 296
+VKP4ClPO>fUok72X[6aJ^W1
+!s100 >7NLZC36[gWa]8ANmfK341
+R6
+32
+R95
+!i10b 1
+R96
+R103
+R104
 !i113 1
 R11
 R12
 Ememory
-Z88 w1653735261
-Z89 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z109 w1653831075
+R49
 R1
-R16
-!i122 51
-R17
-Z90 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd
-Z91 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd
+R2
+!i122 1249
+R3
+Z110 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd
+Z111 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd
 l0
 L5 1
 V[VomLP2TF:S5X7864F6cl2
 !s100 jP=FlN@7jJkiO5Nl[Y4Q;0
-R20
+R6
 32
-R58
+R95
 !i10b 1
-R59
-Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd|
-Z93 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd|
+R96
+Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd|
+Z113 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd|
 !i113 1
 R11
 R12
 Amemarch
-R89
+R49
 R1
-R16
-Z94 DEx4 work 6 memory 0 22 [VomLP2TF:S5X7864F6cl2
-!i122 51
+R2
+R108
+!i122 1249
 l19
 L14 17
 VlA_Mla[cg^>GMBPzTW9PL1
 !s100 CjTaCC849JiezaBm>F2cN2
-R20
+R6
 32
-R58
+R95
 !i10b 1
-R59
-R92
-R93
-!i113 1
-R11
-R12
-Ememorystage
-Z95 w1653768352
-R89
-R1
-R16
-!i122 59
-R17
-Z96 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd
-Z97 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd
-l0
-L5 1
-V?z6zJK@B<==zCPS]24IOY3
-!s100 C>9QUlMffOi`O3Pi1P:l93
-R20
-32
-Z98 !s110 1653768378
-!i10b 1
-Z99 !s108 1653768378.000000
-Z100 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd|
-Z101 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd|
-!i113 1
-R11
-R12
-Amemarch
-Z102 DEx4 work 9 sp_module 0 22 Me6[g4bjiz@07?bH2ElZK3
-R89
-R1
-R16
-Z103 DEx4 work 11 memorystage 0 22 ?z6zJK@B<==zCPS]24IOY3
-!i122 59
-l35
-L32 66
-VUi1OV6`on9EllZHMA4nnN3
-!s100 OT_VI7iQaAR?[IA5hdF5H3
-R20
-32
-R98
-!i10b 1
-R99
-R100
-R101
-!i113 1
-R11
-R12
-Ememwb_buf
-Z104 w1653694416
-R1
-R16
-!i122 53
-R17
-Z105 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd
-Z106 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd
-l0
-L4 1
-VUIeOl;ZF>_QGCF=d>CMK`0
-!s100 iVQc4^JiTW^I?jm3?[7]50
-R20
-32
-R58
-!i10b 1
-R59
-Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd|
-Z108 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd|
-!i113 1
-R11
-R12
-Aarchmemwb_buf
-R1
-R16
-DEx4 work 9 memwb_buf 0 22 UIeOl;ZF>_QGCF=d>CMK`0
-!i122 53
-l19
-L18 17
-V:]Veb`WJdf9WZ8i6c^Y0z1
-!s100 1S<hLSg3MOAY`lTGzPgE41
-R20
-32
-R58
-!i10b 1
-R59
-R107
-R108
-!i113 1
-R11
-R12
-Ememwb_integ
-Z109 w1653756362
-R89
-R1
-R16
-!i122 54
-R17
-Z110 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd
-Z111 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd
-l0
-L4 1
-VCeR0ZgAJ>0Z3kjcE;9lO13
-!s100 ]>Nzz6^F3J@enOc@LXPa03
-R20
-32
-R58
-!i10b 1
-R59
-Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd|
-Z113 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd|
-!i113 1
-R11
-R12
-Amemwb_integ_arch
-R94
-R103
-R62
-R89
-R1
-R16
-DEx4 work 11 memwb_integ 0 22 CeR0ZgAJ>0Z3kjcE;9lO13
-!i122 54
-l29
-L20 64
-VSPz]nMQj@J_aZ[VhZLR=@1
-!s100 TQ_TWD`[R=do?6F<6^9aJ1
-R20
-32
-R58
-!i10b 1
-R59
+R96
 R112
 R113
 !i113 1
 R11
 R12
-Emux2_nbit
-R69
+Ememorystage
+Z114 w1653855936
+R49
 R1
 R2
+!i122 1250
 R3
-Z114 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd
-Z115 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd
+Z115 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd
+Z116 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd
 l0
-L4
+L5 1
+V:VCnZcYVMJ94XT5OV?DLS2
+!s100 n>e0TM49Y2@6UOmR]6UAd1
+R6
+32
+R95
+!i10b 1
+R96
+Z117 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd|
+Z118 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd|
+!i113 1
+R11
+R12
+Amemarch
+Z119 DEx4 work 9 sp_module 0 22 Me6[g4bjiz@07?bH2ElZK3
+R49
+R1
+R2
+R107
+!i122 1250
+l36
+L33 78
+VBEaTb>l7gn5B_OWzl0cA40
+!s100 ;Udk2HGYZ>IlZ>E@Y[]iH2
+R6
+32
+R95
+!i10b 1
+R96
+R117
+R118
+!i113 1
+R11
+R12
+Ememwb_buf
+Z120 w1653851777
+R1
+R2
+!i122 1251
+R3
+Z121 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd
+Z122 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd
+l0
+L4 1
+V2_MI[8g8L6zYlH6@XF;Z`0
+!s100 AWG9EhbZck^l`QPm^7T^42
+R6
+32
+R95
+!i10b 1
+R96
+Z123 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd|
+Z124 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd|
+!i113 1
+R11
+R12
+Aarchmemwb_buf
+R1
+R2
+R106
+!i122 1251
+l19
+L18 17
+VO:^ECWEz3@G2_XHLd]VzN3
+!s100 ^D7kj<BA5>Oh]OZbgRg:N1
+R6
+32
+R95
+!i10b 1
+R96
+R123
+R124
+!i113 1
+R11
+R12
+Ememwb_integ
+Z125 w1653850776
+R49
+R1
+R2
+!i122 1252
+R3
+Z126 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd
+Z127 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd
+l0
+L4 1
+VdD6okhl5_d^iD=m^O^e`D2
+!s100 XhRV`m?MRMhb`mQOY1b[<3
+R6
+32
+Z128 !s110 1653861562
+!i10b 1
+Z129 !s108 1653861562.000000
+Z130 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd|
+Z131 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd|
+!i113 1
+R11
+R12
+Amemwb_integ_arch
+R108
+R107
+R49
+R1
+R2
+DEx4 work 11 memwb_integ 0 22 dD6okhl5_d^iD=m^O^e`D2
+!i122 1252
+l30
+L26 38
+V?`J@1ib>:]>K8RLXhIkdS1
+!s100 i6^P7U`UCCMBOzKZMIh_=3
+R6
+32
+R128
+!i10b 1
+R129
+R130
+R131
+!i113 1
+R11
+R12
+Emux2_nbit
+Z132 w1653675497
+R1
+R2
+!i122 1253
+R3
+Z133 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd
+Z134 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd
+l0
+L4 1
 VYzLPOjLNJ@MdPMFGWRKQ33
 !s100 h2`4FE8CKeJCTIch5Ml;R1
 R6
 32
-R47
+R128
 !i10b 1
-R48
-Z116 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd|
-Z117 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd|
+R129
+Z135 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd|
+Z136 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd|
 !i113 1
 R11
 R12
 Aarch1
 R1
 R2
-R54
+R51
+!i122 1253
 l13
-L12
+L12 7
 V5zL<H8kYAKB9>ZW^f?E261
 !s100 I=NineV_aohEec>hTA[Ub1
 R6
 32
-R47
+R128
 !i10b 1
-R48
-R116
-R117
+R129
+R135
+R136
 !i113 1
 R11
 R12
 Emy_adder
-R33
+Z137 w1653399410
 R1
 R2
+!i122 1254
 R3
-Z118 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd
-Z119 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd
+Z138 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd
+Z139 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd
 l0
-L4
+L4 1
 VFjlMaf=9aFlNWPMnMXH?k3
 !s100 A5lJZfMh@V_I]hj`4ZSML1
 R6
 32
-R7
+R128
 !i10b 1
-R8
-Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd|
-Z121 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd|
+R129
+Z140 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd|
+Z141 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd|
 !i113 1
 R11
 R12
@@ -753,38 +870,40 @@ Aa_my_adder
 R1
 R2
 DEx4 work 8 my_adder 0 22 FjlMaf=9aFlNWPMnMXH?k3
+!i122 1254
 l10
-L9
+L9 7
 VJ]_kQ1mojAbKaQ[_V=7@93
 !s100 _I7FWmdAa8bn:A:[eaVaC3
 R6
 32
-R7
+R128
 !i10b 1
-R8
-R120
-R121
+R129
+R140
+R141
 !i113 1
 R11
 R12
 Emy_nadder
-R33
+R137
 R1
 R2
+!i122 1255
 R3
-Z122 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd
-Z123 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd
+Z142 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd
+Z143 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd
 l0
-L3
+L3 1
 V1aXOU3kVjSeQbH>nEbSg40
 !s100 W6k<<g958N3NziLMfQ6bA1
 R6
 32
-R7
+R128
 !i10b 1
-R8
-Z124 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd|
-Z125 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd|
+R129
+Z144 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd|
+Z145 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd|
 !i113 1
 R11
 R12
@@ -792,38 +911,40 @@ Aa_my_nadder
 R1
 R2
 R13
+!i122 1255
 l17
-L12
+L12 12
 VgTC7]ebhie7bClVF9zfCO3
 !s100 2CzVUbCi4G]8GlCg7E3`43
 R6
 32
-R7
+R128
 !i10b 1
-R8
-R124
-R125
+R129
+R144
+R145
 !i113 1
 R11
 R12
 Epc
-Z126 w1653606913
+Z146 w1653609568
 R1
 R2
+!i122 1256
 R3
-Z127 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd
-Z128 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd
+Z147 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd
+Z148 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd
 l0
-L4
+L4 1
 VP;X1GgkHcoM:DMR=^^8:82
 !s100 0D7:0_IDO7QgF15lVjYZa3
 R6
 32
-R7
+Z149 !s110 1653861563
 !i10b 1
-R8
-Z129 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd|
-Z130 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd|
+R129
+Z150 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd|
+Z151 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd|
 !i113 1
 R11
 R12
@@ -831,219 +952,228 @@ Apcarch
 R1
 R2
 DEx4 work 2 pc 0 22 P;X1GgkHcoM:DMR=^^8:82
+!i122 1256
 l15
-L12
+L12 13
 VhDIj6dPNS0mNE0HIP>RJR3
 !s100 2e[VC`m13<IJ]jS[9<BP73
 R6
 32
-R7
+R149
 !i10b 1
-R8
 R129
-R130
+R150
+R151
 !i113 1
 R11
 R12
 Ereg
-Z131 w1653523106
+Z152 w1653684067
 R1
 R2
+!i122 1257
 R3
-Z132 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
-Z133 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
+R16
+R17
 l0
-L4
+L4 1
 Vb5nFI59^83LczK_W0QU6`0
 !s100 V=c_K2z3Qe_2LWiW<bkaf1
 R6
 32
-R7
+R149
 !i10b 1
-R8
-Z134 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
-Z135 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/Reg.vhd|
+Z153 !s108 1653861563.000000
+R20
+R21
 !i113 1
 R11
 R12
 Aregarch
 R1
 R2
-R51
+R48
+!i122 1257
 l14
-L13
+L13 17
 Vl0;=:ZzZ=?DM;08K<i3L<3
 !s100 51_IRRWO;3mCFeUmboX^F2
 R6
 32
-R7
+R149
 !i10b 1
-R8
-R134
-R135
+R153
+R20
+R21
 !i113 1
 R11
 R12
 Eregfile
-Z136 w1653573534
+R146
 R1
 R2
+!i122 1258
 R3
-Z137 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd
-Z138 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd
+Z154 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd
+Z155 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd
 l0
-L4
+L4 1
 V_mG^Qg?1G5[Y13J;IXLNM2
 !s100 8T_hFWdc6LTglK=j@C_z:0
 R6
 32
-R7
+R149
 !i10b 1
-R8
-Z139 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd|
-Z140 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd|
+R153
+Z156 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd|
+Z157 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd|
 !i113 1
 R11
 R12
 Aregfilearch
-Z141 DEx4 work 8 tristate 0 22 JJ_ObWi7_1bCz[TkmhVkh3
-R38
-R51
+Z158 DEx4 work 8 tristate 0 22 JJ_ObWi7_1bCz[TkmhVkh3
+R34
+R48
 R1
 R2
-R44
+R40
+!i122 1258
 l27
-L20
+L20 42
 VZ@K]4eKQ<HBL5TU;ScNe<1
 !s100 ic_SI5<1hhzFFIXVRQiP=0
 R6
 32
-R7
+R149
 !i10b 1
-R8
-R139
-R140
+R153
+R156
+R157
 !i113 1
 R11
 R12
 Esp_module
-Z142 w1653761650
-R89
+Z159 w1653775952
+R49
 R1
-R16
-!i122 55
-R17
-Z143 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd
-Z144 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd
+R2
+!i122 1259
+R3
+Z160 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd
+Z161 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd
 l0
 L5 1
 VMe6[g4bjiz@07?bH2ElZK3
 !s100 nXkScbDhH=aG7_hF_GS:^1
-R20
+R6
 32
-Z145 !s110 1653767003
+R149
 !i10b 1
-R59
-Z146 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd|
-Z147 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd|
+R153
+Z162 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd|
+Z163 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd|
 !i113 1
 R11
 R12
 Asparch
-R89
+R49
 R1
-R16
-R102
-!i122 55
+R2
+R119
+!i122 1259
 l15
 L14 11
-VMiHCCk5<8;CkLFXB@@C3W0
-!s100 e9PQoBjJ1IOlG^4]Dmk302
-R20
+VOSGF4M;>A>_iQIVmfU>n;0
+!s100 004^GnIMPFjob9z3KQb1g1
+R6
 32
-R145
+R149
 !i10b 1
-R59
-R146
-R147
+R153
+R162
+R163
 !i113 1
 R11
 R12
 Etristate
-R33
+Z164 w1652228534
 R1
 R2
+!i122 1260
 R3
-Z148 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/TriState.vhd
-Z149 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/TriState.vhd
+Z165 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/TriState.vhd
+Z166 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/TriState.vhd
 l0
-L3
+L3 1
 VJJ_ObWi7_1bCz[TkmhVkh3
 !s100 mV21Q2_UEJmYoPch=l?f]3
 R6
 32
-R7
+R149
 !i10b 1
-R8
-Z150 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/TriState.vhd|
-Z151 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/TriState.vhd|
+R153
+Z167 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/TriState.vhd|
+Z168 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/TriState.vhd|
 !i113 1
 R11
 R12
 Atriarch
 R1
 R2
-R141
+R158
+!i122 1260
 l12
-L11
+L11 7
 V7c`ELnkXn<Kbfi`mgRWYc1
 !s100 YX`:]@hjJM88@K@?J5[2h3
 R6
 32
-R7
+R149
 !i10b 1
-R8
-R150
-R151
+R153
+R167
+R168
 !i113 1
 R11
 R12
 Ewb_stage
-Z152 w1653617005
+Z169 w1653852501
 R1
 R2
+!i122 1261
 R3
-Z153 8D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd
-Z154 FD:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd
+Z170 8D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd
+Z171 FD:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd
 l0
-L4
+L4 1
 VgVm1kXgZS9iFj=N`L6X`o0
 !s100 F@l8fMjz<@jSnf;g^fSY]1
 R6
 32
-R7
+Z172 !s110 1653861564
 !i10b 1
-R8
-Z155 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd|
-Z156 !s107 D:/intelFPGA/18.0/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd|
+R153
+Z173 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd|
+Z174 !s107 D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd|
 !i113 1
 R11
 R12
 Awb_arch
 R1
 R2
-DEx4 work 8 wb_stage 0 22 gVm1kXgZS9iFj=N`L6X`o0
+R105
+!i122 1261
 l20
-L19
-VKnl3Wa6=[bm0X`<dW@TGO1
-!s100 Z<IgiVOoG_O8@CQ1O3Vm53
+Z175 L19 13
+Z176 V7Fj:G[eC;0908k2@z5K:H0
+Z177 !s100 CiT<ZKJf:`Ezifg6A77K<2
 R6
 32
-R7
+R172
 !i10b 1
-R8
-R155
-R156
+R153
+R173
+R174
 !i113 1
 R11
 R12

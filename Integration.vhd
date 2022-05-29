@@ -4,7 +4,10 @@ USE ieee.std_logic_1164.ALL;
 entity Integration is
   port (
 		clk : in std_logic;
-		rst : in std_logic
+		rst : in std_logic;
+    IN_PORT: IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    OUT_PORT: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    INTERRUPT: IN STD_LOGIC
   );
 END ENTITY;
 
@@ -89,11 +92,13 @@ signal regFileAddr_MEM_MEMWB : STD_LOGIC_VECTOR(2 downto 0);
 signal Memory_MEMWB_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
 signal ALU_MEMWB_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
 signal WBControlSignal_MEMWB_WB : STD_LOGIC_VECTOR(1 DOWNTO 0);
+signal regFileAddr_MEMWB_WB: STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 --WB DEC
 signal writeEnable_WB_DEC: STD_LOGIC;
 signal writeData_WB_DEC : STD_LOGIC_VECTOR (31 DOWNTO 0);
 signal writeAddress_WB_DEC : STD_LOGIC_VECTOR (2 DOWNTO 0);
+
 
 begin
 
@@ -126,6 +131,7 @@ begin
     fetchToDecodeBuffer : entity work.IFID_buf port map (
       clk => clk, 
       rst => rst,
+      LowActiveEnable => freezePC_MEM_IF,
       instruction_i => instruction_IF_IFID,
       readEnable_i => readEnable_IF_IFID,
       PC_i => PC_IF_IFID,
@@ -139,6 +145,7 @@ begin
       instruction => instruction_IFID_ID,
       clk => clk,
       rst => rst,
+      IN_PORT => IN_PORT,
       readEnable => readEnable_IFID_ID,
       writeEnable => writeEnable_WB_DEC,
       writeData => writeData_WB_DEC,
@@ -162,6 +169,7 @@ begin
     -- IDEx buf to execute stage --
      ID_Ex_buf: entity work.IDEx_buf port map(Rst  => Rst,
      Clk => Clk,
+     LowActiveEnable => '0',
      --- inputs --- 
     ExeSrc_i => ExeSrc_dec_IDEX,
     SETC_i => SETC_dec_IDEX,
@@ -214,8 +222,10 @@ begin
     F => Alu_Ex_EXMEM,
     WriteData => WriteData_Ex_EXMEM);
   -- execute stage to EX Mem buffer --
-  EXMEM_Buf : ENTITY work.ExMem_buf PORT MAP(Rst => Rst,
+  EXMEM_Buf : ENTITY work.ExMem_buf PORT MAP(
+    Rst => Rst,
     Clk => Clk,
+    LowActiveEnable => '0',
     CCR_i => CCR_Ex_EXMEM,
     PC_i => PC_IDEX_EX,
     PC_Branch_i => PC_Ex_EXMEM,
@@ -278,7 +288,8 @@ begin
       Memory_Output_Out => Memory_MEMWB_WB,
       ALU_Output_In => ALU_MEM_MEMWB,
       ALU_Output_Out => ALU_MEMWB_WB ,
-      writeAddressRegFile_In => regFileAddr_MEM_MEMWB
+      writeAddressRegFile_In => regFileAddr_MEM_MEMWB,
+      writeAddressRegFile_Out => regFileAddr_MEMWB_WB
     );
 
 
@@ -289,7 +300,7 @@ begin
       writeBackSignal => WBControlSignal_MEMWB_WB,
       ALU_Output => ALU_MEMWB_WB,
       Memory_Output => Memory_MEMWB_WB,
-      writeAddressIn => regFileAddr_MEM_MEMWB,
+      writeAddressIn => regFileAddr_MEMWB_WB,
       writeAddressOut => writeAddress_WB_DEC ,
       writeData => writeData_WB_DEC,
       writeEnable => writeEnable_WB_DEC

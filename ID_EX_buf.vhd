@@ -3,7 +3,7 @@ Use ieee.std_logic_1164.all;
 
 entity IDEx_buf is
   port (
-    Rst, Clk : IN STD_LOGIC;
+    Rst, Clk, LowActiveEnable : IN STD_LOGIC;
     --- Ex ports --- 
     ExeSrc_i, SETC_i : IN STD_LOGIC;
     AluOpCode_i :IN std_logic_vector(2 downto 0);
@@ -56,7 +56,7 @@ begin
     SPcontrolSignals_o <= (others => '0');
     CCR_ENABLE_o <= '0';
 
-  elsif rising_edge(Clk) then
+  elsif rising_edge(Clk) AND LowActiveEnable = '0' then
     ExeSrc_o <= ExeSrc_i;
     SETC_o <= SETC_i;
     AluOpCode_o <= AluOpCode_i;

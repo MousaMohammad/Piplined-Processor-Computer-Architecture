@@ -6,13 +6,133 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity ExMem_buf
 -- Compiling architecture arch of ExMem_buf
 
-} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ExecuteStage.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity MemWB_buf
--- Compiling architecture archMemWB_buf of MemWB_buf
+-- Compiling entity ExecuteStage
+-- Compiling architecture archEx of ExecuteStage
+-- Loading entity mux2_nbit
+-- Loading entity ALU
+-- Loading package NUMERIC_STD
+-- Loading entity flagControl
+-- Loading entity Reg
+-- Loading entity my_nadder
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/DecodeStage.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity DECODING
+-- Compiling architecture DecodeFunc of decoding
+-- Loading entity RegFile
+-- Loading entity ControlUnit
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/mux2_nbit.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2_nbit
+-- Compiling architecture arch1 of mux2_nbit
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/n_bit_adder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_nadder
+-- Compiling architecture a_my_nadder of my_nadder
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/WB_stage.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity WB_stage
+-- Compiling architecture WB_Arch of WB_stage
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ID_EX_buf.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity IDEx_buf
+-- Compiling architecture archbuf of IDEx_buf
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memoryStage.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity memoryStage
+-- Compiling architecture memArch of memoryStage
+-- Loading entity SP_Module
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/fetchComponent.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/fetchComponent.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity fetchComponent
+-- Compiling architecture fetchComponentArch of fetchComponent
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity MEMWB_Integ
+-- Compiling architecture MEMWB_Integ_Arch of MEMWB_Integ
+-- Loading entity memoryStage
+-- Loading entity memory
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/FetchStage.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity fetchStage
+-- Compiling architecture fetchArch of fetchStage
+-- Loading entity fetchComponent
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Decoder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Decoder
+-- Compiling architecture DecoderArch of Decoder
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/IF_ID_buf.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity IFID_buf
+-- Compiling architecture IFID_BUF_ARCH of IFID_buf
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/TriState.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/TriState.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity TriState
+-- Compiling architecture TriArch of TriState
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ControlUnit.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ControlUnit
+-- Compiling architecture ControlUnitArch of ControlUnit
 
 } {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/memory.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -23,16 +143,74 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity memory
 -- Compiling architecture memArch of memory
 
-} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_Integ.vhd
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/ALU.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALU
+-- Compiling architecture archB of ALU
+-- Loading entity my_nadder
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/flagControl.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity MEMWB_Integ
--- Compiling architecture MEMWB_Integ_Arch of MEMWB_Integ
--- Loading entity ExMem_buf
--- Loading entity memoryStage
--- Loading entity memory
+-- Compiling entity flagControl
+-- Compiling architecture flagarch of flagControl
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/SP.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity SP_Module
+-- Compiling architecture SPArch of SP_Module
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/MEMWB_buf.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity MemWB_buf
+-- Compiling architecture archMemWB_buf of MemWB_buf
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/my_adder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_adder
+-- Compiling architecture a_my_adder of my_adder
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/PCComponent.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity PC
+-- Compiling architecture PCArch of PC
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/Reg.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Reg
+-- Compiling architecture RegArch of Reg
+
+} {} {}} D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/Senior/Architecture/Project/Piplined-Processor-Computer-Architecture/RegFile.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity RegFile
+-- Compiling architecture RegFileArch of RegFile
+-- Loading entity Reg
+-- Loading entity Decoder
+-- Loading entity TriState
 
 } {} {}}

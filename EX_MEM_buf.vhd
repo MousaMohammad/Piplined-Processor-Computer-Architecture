@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY ExMem_buf IS
   PORT (
-    Rst, Clk : IN STD_LOGIC;
+    Rst, Clk, LowActiveEnable : IN STD_LOGIC;
     -- Ex ports --
     CCR_i : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     PC_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -46,7 +46,7 @@ BEGIN
       SPControlSignal_o <= (OTHERS => '0');
       writeBackControlSignal_o <= (OTHERS => '0');
       RegFileAddressWB_o <= (OTHERS => '0');
-    ELSIF rising_edge(Clk) THEN
+    ELSIF rising_edge(Clk) AND LowActiveEnable = '0' THEN
       PC_o <= PC_i;
       PC_Branch_o <= PC_Branch_i;
       CCR_o <= CCR_i;

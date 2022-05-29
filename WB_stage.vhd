@@ -18,10 +18,14 @@ END ENTITY;
 
 ARCHITECTURE WB_Arch OF WB_stage IS
 BEGIN
-    writeEnable <= '1' WHEN writeBackSignal(1) = '1'
+    writeEnable <= 'Z' WHEN Rst = '1' ELSE
+        '1' WHEN writeBackSignal(1) = '1'
         ELSE
         '0';
-    writeData <= ALU_Output WHEN writeBackSignal(0) = '0'ELSE
+    writeData <= (OTHERS => 'Z') WHEN Rst = '1' ELSE
+        ALU_Output WHEN writeBackSignal(0) = '0'ELSE
         Memory_Output;
-    writeAddressOut <= writeAddressIn;
+    writeAddressOut <= (OTHERS => 'Z') WHEN Rst = '1'
+        ELSE
+        writeAddressIn;
 END ARCHITECTURE;

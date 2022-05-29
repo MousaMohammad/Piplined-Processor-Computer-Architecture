@@ -6,6 +6,7 @@ ENTITY IFID_buf IS
   PORT (
     clk : IN STD_LOGIC;
     rst : IN STD_LOGIC;
+    LowActiveEnable: IN STD_LOGIC;
     instruction_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     readEnable_i : IN STD_LOGIC;
     PC_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -27,7 +28,7 @@ BEGIN
       readEnable_o <= '0';
       instruction_o <= (OTHERS => '0');
       PC_o <= (OTHERS => '0');
-    ELSIF rising_edge(Clk) THEN
+    ELSIF rising_edge(Clk) AND LowActiveEnable = '0' THEN
       instruction_o <= instruction_i;
       readEnable_o <= readEnable_i;
       PC_o <= PC_i;

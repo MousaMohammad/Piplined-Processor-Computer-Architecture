@@ -37,12 +37,17 @@ BEGIN
 
     memWriteControlSignal_Out <= memWriteControlSignal_In;
     memReadControlSignal_Out <= memReadControlSignal_In WHEN memReadControlSignal_In = '1'
-    ELSE 'Z';
+        ELSE
+        'Z';
 
-    freezePC <= '1' WHEN SPControlSignal(3) = '1' OR memWriteControlSignal_In = '1' OR memReadControlSignal_In = '1'
-    ELSE '0';
+    freezePC <= '0' WHEN Rst = '1'
+        ELSE
+        '1' WHEN
+        SPControlSignal(3) = '1' OR memWriteControlSignal_In = '1' OR memReadControlSignal_In = '1'
+        ELSE
+        '0';
 
-    writeData_Mem <= (OTHERS => '0') WHEN Rst = '1'
+    writeData_Mem <= (OTHERS => 'Z') WHEN Rst = '1'
         ELSE
         ALU_Output_In WHEN SPControlSignal = "1010" -- PUSH Only
         ELSE
@@ -52,19 +57,21 @@ BEGIN
         ELSE
         writeDataBuff_In WHEN SPControlSignal(3) = '0' AND memWriteControlSignal_In = '1'
         ELSE
-        (OTHERS => '0');
+        (OTHERS => 'Z');
 
-    address_Out <= (OTHERS => '0') WHEN Rst = '1' ELSE
-        ALU_Output_In(19 DOWNTO 0) 
-        WHEN SPControlSignal(3) = '0' -- LOAD and STORE
+    address_Out <= (OTHERS => 'Z') WHEN Rst = '1' ELSE
+        ALU_Output_In(19 DOWNTO 0) WHEN (SPControlSignal(3) = '0')
+        AND (memWriteControlSignal_In = '1' OR memReadControlSignal_In = '1') -- LOAD and STORE
         ELSE
-        SP_Before WHEN 
+        SP_Before WHEN
         SPControlSignal = "1010" OR SPControlSignal = "1011" OR SPControlSignal = "1100" --PUSH/CALL/INT/ 
         ELSE
-        SP_After WHEN 
-        SPControlSignal = "1000" OR SPControlSignal = "1001" OR SPControlSignal = "1101"; --POP/RET/RTI
+        SP_After WHEN
+        SPControlSignal = "1000" OR SPControlSignal = "1001" OR SPControlSignal = "1101" --POP/RET/RTI
+        ELSE
+        (OTHERS => 'Z');
 
-        SP_After <= x"FFFFF" WHEN Rst = '1' ELSE
+    SP_After <= x"FFFFF" WHEN Rst = '1' ELSE
         SP_Before WHEN SPControlSignal(3) = '0'
         ELSE
         STD_LOGIC_VECTOR(UNSIGNED(SP_Before) - 1) WHEN SPControlSignal = "1010"
