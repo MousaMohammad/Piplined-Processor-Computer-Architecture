@@ -5,6 +5,7 @@ USE ieee.numeric_std.ALL;
 ENTITY fetchStage IS
     PORT (
         clk : IN STD_LOGIC;
+        rst: IN STD_LOGIC;
         freezePC : IN STD_LOGIC;
         reset : IN STD_LOGIC;
         jumpPC : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -33,7 +34,7 @@ BEGIN
     memAddr <= PC_before(19 DOWNTO 0) WHEN freezePC = '0'
     ELSE (others => 'Z') WHEN freezePC = '1';
 
-    instruction <= memData;
+    instruction <= "10100000000000000000000000000000" WHEN rst = '1' ELSE memData;
     readEnable <= '1';
 
     memReadEn <= '1' WHEN freezePC='0'

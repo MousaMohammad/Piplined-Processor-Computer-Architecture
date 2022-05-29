@@ -4,6 +4,7 @@ Use ieee.std_logic_1164.all;
 
 Entity ControlUnit IS
 	PORT(
+        Rst: IN STD_LOGIC;
 		instruction:IN std_logic_vector (31 DOWNTO 0);
         -------------control signals---------------------
         jumpControlSignals : out std_logic_vector(2 downto 0);
@@ -32,11 +33,14 @@ begin
     else "101" when instruction(31 downto 26) = "010101" ------POP
     else "101" when instruction(31 downto 26) = "010001" ------PUSH
     else "101" when instruction(31 downto 26) = "100100" ------IN
+    else "101" when instruction(31 downto 26) = "100000" ------IN
     else instruction(30 downto 28) when  instruction(27 downto 26) = "00" ---------ALU OPERATION-------
     else "111";
 
     ------------------------------------------WB CONTROL SIGNALS------------------------------------------------------
-    writeBackSignal <= "00" when instruction(31 downto 26) = "101000" --NOP
+    writeBackSignal <= "00" WHEN Rst = '1' ELSE
+    "00" when instruction(31 downto 26) = "101000" --NOP
+    else "01" when instruction(31 downto 26) = "100000"         --OUT PORT
     else "10" when instruction(27 downto 26) = "00" or instruction(31 downto 26) = "000001" ---------ALU OPERATION-------
     else "11" when instruction(27 downto 26) = "01" else "00"; ---------MEMORY OPERATION-------
     

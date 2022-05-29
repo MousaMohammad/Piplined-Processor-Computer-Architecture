@@ -22,7 +22,8 @@ ENTITY DECODING IS
         Set_C : out std_logic; --set carry bit
         LoadStoreControlSignals : out std_logic_vector(2 downto 0);
         --------------document signals---------------------------
-        writeBackSignal : out std_logic_vector(1 downto 0); ----- (00: No WB, 10: WB_ALU, 11: WB_MEM)
+        writeBackSignal : out std_logic_vector(1 downto 0); ----- (00: No WB, 10: WB_ALU, 
+                                                            ----- 11: WB_MEM, 01: OUT_PORT)
         --MemoryWriteReadSignal, : out std_logic; --(0 for write, 1 for read)
         MemoryReadEnableSignal : OUT STD_LOGIC;
         MemoryWriteEnableSignal : OUT STD_LOGIC;
@@ -68,6 +69,6 @@ BEGIN
     ---------------------------------------------------------------------------------------------------------
     RF : ENTITY work.RegFile PORT MAP(clk => clk, rst => rst, readEnable => readEnable_LDM_In, writeEnable => writeEnable, readAddress1 => selSr1, readAddress2 => selSr2, writeAddress => writeAddress, writeData => writeData, readData1 => registerFileReadData1, readData2 => readData2);
 
-    CU : ENTITY work.ControlUnit PORT MAP(instruction => instruction, jumpControlSignals => jumpControlSignals, ALUcontrolSignals => ALUcontrolSignals, Set_C => Set_C, LoadStoreControlSignals => LoadStoreControlSignals,
+    CU : ENTITY work.ControlUnit PORT MAP(Rst => rst, instruction => instruction, jumpControlSignals => jumpControlSignals, ALUcontrolSignals => ALUcontrolSignals, Set_C => Set_C, LoadStoreControlSignals => LoadStoreControlSignals,
         writeBackSignal => writeBackSignal, MemoryReadEnableSignal => MemoryReadEnableSignal, MemoryWriteEnableSignal => MemoryWriteEnableSignal, SPcontrolSignals => SPcontrolSignals, CCR_ENABLE => CCR_ENABLE);
 END DecodeFunc;

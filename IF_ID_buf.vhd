@@ -26,7 +26,7 @@ BEGIN
   BEGIN
     IF (Rst = '1') THEN
       readEnable_o <= '0';
-      instruction_o <= (OTHERS => '0');
+      instruction_o <= (OTHERS => 'Z');
       PC_o <= (OTHERS => '0');
     ELSIF rising_edge(Clk) AND LowActiveEnable = '0' THEN
       instruction_o <= instruction_i;

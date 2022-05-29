@@ -115,6 +115,7 @@ begin
     --fetch stage --
     fetchSTG : entity work.fetchStage port map (
       clk => clk,
+      rst => rst,
       freezePC => freezePC_MEM_IF,
       reset => rst,
       jumpPC => jumpPC_EXMEM_IF,
