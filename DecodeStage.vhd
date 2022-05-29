@@ -27,7 +27,7 @@ Entity DECODING IS
         MemoryWriteEnableSignal : out std_logic;
         SPcontrolSignals : out std_logic_vector(3 downto 0); ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
         CCR_ENABLE : out std_logic;
-        Interrupt_Index : out std_logic_vector(1 downto 0)
+        --Interrupt_Index : out std_logic_vector(1 downto 0)
 	);
 	
 	     
@@ -60,7 +60,7 @@ begin
     else registerFileReadData1; --LDM case
     ------------------------------if I type-----------------------------------------------------------------
     ImmValue <= "0000000000000000" & instruction(15 downto 0);
-    Interrupt_Index <= '1' & instruction(0) when instruction(31 downto 26) = "011010" else "00"; --inturrpt
+    --Interrupt_Index <= '1' & instruction(0) when instruction(31 downto 26) = "011010" else "00"; --inturrpt
     exSrc <= '1' when  instruction(27 downto 26) = "01" else '0';
     ---------------------------------------------------------------------------------------------------------
     RF: ENTITY work.RegFile port map(clk=>clk,rst=>rst,readEnable=>readEnable_LDM,writeEnable=>writeEnable,readAddress1=>selSr1,readAddress2=>selSr2,writeAddress=>writeAddress,writeData=>writeData,readData1=>registerFileReadData1,readData2=>readData2);
