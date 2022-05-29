@@ -7,9 +7,11 @@ ENTITY ExMem_buf IS
     -- Ex ports --
     CCR_i : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     PC_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    PC_Branch_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     Alu_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     WriteData_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     PC_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    PC_Branch_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     CCR_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
     Alu_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     WriteData_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -34,6 +36,7 @@ BEGIN
   BEGIN
     IF Rst = '1' THEN
       PC_o <= (OTHERS => '0');
+      PC_Branch_o <= (OTHERS => '0');
       CCR_o <= (OTHERS => '0');
       Alu_o <= (OTHERS => '0');
       WriteData_o <= (OTHERS => '0');
@@ -45,6 +48,7 @@ BEGIN
       RegFileAddressWB_o <= (OTHERS => '0');
     ELSIF rising_edge(Clk) THEN
       PC_o <= PC_i;
+      PC_Branch_o <= PC_Branch_i;
       CCR_o <= CCR_i;
       Alu_o <= Alu_i;
       WriteData_o <= WriteData_i;

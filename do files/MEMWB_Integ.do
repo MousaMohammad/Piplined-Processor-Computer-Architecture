@@ -7,8 +7,7 @@ sim:/memwb_integ/memWriteControlSignal \
 sim:/memwb_integ/memReadControlSignal \
 sim:/memwb_integ/ALU_Output_Input \
 sim:/memwb_integ/WriteDataBuff_In \
-sim:/memwb_integ/readData_Mem \
-sim:/memwb_integ/address_Memstage_Mem
+sim:/memwb_integ/readData_Mem
 force -freeze sim:/memwb_integ/Rst 1 0
 force -freeze sim:/memwb_integ/Clk 1 0, 0 {50 ps} -r 100
 run

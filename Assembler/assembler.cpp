@@ -117,6 +117,7 @@ void textMode()
 		int Rsrc1 = 0;
 		int Rsrc2 = 0;
 
+		
 		switch (opCode)
 		{
 		case nopOpCode:

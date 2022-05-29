@@ -1,26 +1,12 @@
-Library ieee;
-Use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
 entity Integration is
   port (
 		clk : in std_logic;
-		rst : in std_logic;
-		writeEnable: in std_logic;
-		writeData_ToDecode : in std_logic_vector(31 downto 0);
-    writeAddress_ToDecode : in std_logic_vector(2 downto 0);
-    --- Outputs ---
-    PC_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    CCR_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-    Alu_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    WriteData_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    jumpControlSignal_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-    memWriteControlSignal_o : OUT STD_LOGIC;
-    memReadControlSignal_o : OUT STD_LOGIC;
-    SPControlSignal_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    writeBackControlSignal_o : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-    RegFileAddressWB_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
-  ) ;
-end entity;
+		rst : in std_logic
+  );
+END ENTITY;
 
 architecture arch of Integration is
 
@@ -28,7 +14,7 @@ architecture arch of Integration is
  signal ExeSrc_dec_IDEX, SETC_dec_IDEX : STD_LOGIC;
  signal AluOpCode_dec_IDEX : std_logic_vector(2 downto 0);
  signal Rsrc1_dec_IDEX, Rsrc2_dec_IDEX, Immediate_dec_IDEX :  std_logic_vector(31 downto 0);
- signal PC_dec_IDEX : std_logic_vector(31 downto 0);
+ --signal PC_dec_IDEX : std_logic_vector(31 downto 0);
  signal LDSTControlSig_dec_IDEX :  std_logic_vector(2 downto 0);
  --- Mem flying ports ---
  signal  MemRead_dec_IDEX, MemWrite_dec_IDEX :  STD_LOGIC;
@@ -60,7 +46,7 @@ signal SPcontrolSignals_IDEX_EXMEM :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 -- this signal is used for structural hazard
 signal freezePC_MEM_IF : STD_LOGIC;
 -- the pc if the instruction is a jump
-signal jumpPC_EX_IF : STD_LOGIC_VECTOR(31 downto 0);
+signal jumpPC_EXMEM_IF : STD_LOGIC_VECTOR(31 downto 0);
 -- 1 if jump, 0 if not
 signal useJumpPC_MEM_IF : STD_LOGIC;
 -- memory data bus
@@ -80,7 +66,7 @@ signal PC_IF_IFID : STD_LOGIC_VECTOR(31 downto 0);
 
 signal readEnable_IFID_ID : STD_LOGIC;
 signal instruction_IFID_ID : STD_LOGIC_VECTOR(31 downto 0);
-signal PC_IFID_ID : STD_LOGIC_VECTOR(31 downto 0);
+signal PC_IFID_IDEX : STD_LOGIC_VECTOR(31 downto 0);
 
 -- CCR
 signal CCR_EXMEM_MEM : STD_LOGIC_VECTOR(2 downto 0);
@@ -99,8 +85,15 @@ signal ALU_MEM_MEMWB : STD_LOGIC_VECTOR(31 downto 0);
 signal readData_Mem_MEM_MEMWB : STD_LOGIC_VECTOR(31 downto 0);
 signal regFileAddr_MEM_MEMWB : STD_LOGIC_VECTOR(2 downto 0);
 
+--MEMWB_Buf WBStage
+signal Memory_MEMWB_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
+signal ALU_MEMWB_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
+signal WBControlSignal_MEMWB_WB : STD_LOGIC_VECTOR(1 DOWNTO 0);
 
-
+--WB DEC
+signal writeEnable_WB_DEC: STD_LOGIC;
+signal writeData_WB_DEC : STD_LOGIC_VECTOR (31 DOWNTO 0);
+signal writeAddress_WB_DEC : STD_LOGIC_VECTOR (2 DOWNTO 0);
 
 begin
 
@@ -119,7 +112,7 @@ begin
       clk => clk,
       freezePC => freezePC_MEM_IF,
       reset => rst,
-      jumpPC => jumpPC_EX_IF,
+      jumpPC => jumpPC_EXMEM_IF,
       useJumpPC => useJumpPC_MEM_IF,
       memData => MemDataOut,
       memReadEn => MemReadEnable,
@@ -138,7 +131,7 @@ begin
       PC_i => PC_IF_IFID,
       instruction_o => instruction_IFID_ID,
       readEnable_o => readEnable_IFID_ID,
-      PC_o => PC_IFID_ID
+      PC_o => PC_IFID_IDEX
       );
 
     ------from decode stage to ID/EX buffer------
@@ -147,9 +140,9 @@ begin
       clk => clk,
       rst => rst,
       readEnable => readEnable_IFID_ID,
-      writeEnable => writeEnable,
-      writeData => writeData_ToDecode,
-      writeAddress => writeAddress_ToDecode, --change to dstAddress from memBuf to test WB
+      writeEnable => writeEnable_WB_DEC,
+      writeData => writeData_WB_DEC,
+      writeAddress => writeAddress_WB_DEC, --change to dstAddress from memBuf to test WB
       -- ouputs from decode stage to ID/EX buffer --
       ImmValue => Immediate_dec_IDEX,
       readData1 => Rsrc1_dec_IDEX,
@@ -173,10 +166,10 @@ begin
     ExeSrc_i => ExeSrc_dec_IDEX,
     SETC_i => SETC_dec_IDEX,
     AluOpCode_i => AluOpCode_dec_IDEX,
-    Rsrc1_i => Rsrc1_dec_IDEX, 
+    Rsrc1_i => Rsrc1_dec_IDEX,
     Rsrc2_i => Rsrc2_dec_IDEX,
     Immediate_i => Immediate_dec_IDEX,
-    PC_i => PC_dec_IDEX,
+    PC_i => PC_IFID_IDEX,
     LoadStoreControlSignals_i => LDSTControlSig_dec_IDEX,
     MemRead_i => MemRead_dec_IDEX,
     MemWrite_i => MemWrite_dec_IDEX,
@@ -189,7 +182,7 @@ begin
     ExeSrc_o => ExeSrc_IDEX_EX,
     SETC_o => SETC_IDEX_EX,
     AluOpCode_o => AluOpCode_IDEX_EX,
-    Rsrc1_o => Rsrc1_IDEX_EX, 
+    Rsrc1_o => Rsrc1_IDEX_EX,
     Rsrc2_o => Rsrc2_IDEX_EX,
     Immediate_o => Immediate_IDEX_EX,
     PC_o => PC_IDEX_EX,
@@ -203,14 +196,14 @@ begin
     writeBackSignal_o => writeBackSignal_IDEX_EXMEM,
     SPcontrolSignals_o => SPcontrolSignals_IDEX_EXMEM);
 
-    -- IDEx buf to execute stage --
-    executeSTG: entity work.ExecuteStage port map(Rst  => Rst,
+  -- IDEx buf to execute stage --
+  executeSTG : ENTITY work.ExecuteStage PORT MAP(Rst => Rst,
     Clk => Clk,
     --- wire signals comming from IDEX to ex --
     ExeSrc => ExeSrc_IDEX_EX,
     SETC => SETC_IDEX_EX,
     AluOpCode => AluOpCode_IDEX_EX,
-    Rsrc1 => Rsrc1_IDEX_EX, 
+    Rsrc1 => Rsrc1_IDEX_EX,
     Rsrc2 => Rsrc2_IDEX_EX,
     Immediate => Immediate_IDEX_EX,
     PCin => PC_IDEX_EX,
@@ -220,11 +213,12 @@ begin
     PCout => PC_Ex_EXMEM,
     F => Alu_Ex_EXMEM,
     WriteData => WriteData_Ex_EXMEM);
-    -- execute stage to EX Mem buffer --
-    memBuf: entity work.ExMem_buf port map(Rst  => Rst,
+  -- execute stage to EX Mem buffer --
+  EXMEM_Buf : ENTITY work.ExMem_buf PORT MAP(Rst => Rst,
     Clk => Clk,
     CCR_i => CCR_Ex_EXMEM,
-    PC_i => PC_Ex_EXMEM,
+    PC_i => PC_IDEX_EX,
+    PC_Branch_i => PC_Ex_EXMEM,
     Alu_i => Alu_Ex_EXMEM,
     WriteData_i => WriteData_Ex_EXMEM,
     jumpControlSignal_i => jumpControlSignals_IDEX_EXMEM,
@@ -233,16 +227,17 @@ begin
     SPControlSignal_i => SPcontrolSignals_IDEX_EXMEM,
     writeBackControlSignal_i => writeBackSignal_IDEX_EXMEM,
     RegFileAddressWB_i => dstAddress_IDEX_EXMEM,
-    PC_o => PC_o,
-    CCR_o => CCR_o,
-    Alu_o => Alu_o,
-    WriteData_o => WriteData_o,
-    jumpControlSignal_o => jumpControlSignal_o,
-    memWriteControlSignal_o => memWriteControlSignal_o,
-    memReadControlSignal_o => memReadControlSignal_o,
-    SPControlSignal_o => SPControlSignal_o,
-    writeBackControlSignal_o => writeBackControlSignal_o,
-    RegFileAddressWB_o => RegFileAddressWB_o
+    PC_o => PC_EXMEM_MEM,
+    PC_Branch_o => jumpPC_EXMEM_IF,
+    CCR_o => CCR_EXMEM_MEM,
+    Alu_o => ALU_EXMEM_MEM,
+    WriteData_o => writeData_EXMEM_MEM,
+    jumpControlSignal_o => jumpControlSignal_EXMEM_MEM,
+    memWriteControlSignal_o => writeEnable_EXMEM_MEM,
+    memReadControlSignal_o => readEnable_EXMEM_MEM,
+    SPControlSignal_o => SPcontrolSignal_EXMEM_MEM,
+    writeBackControlSignal_o => writeBackControlSignal_EXMEM_MEM,
+    RegFileAddressWB_o => regFileAddr_EXMEM_MEM
     );
 
     --Mem stage
@@ -273,6 +268,31 @@ begin
     );
 
 
+    --MEMWB Buffer
+    MEMWB_buf: ENTITY work.MemWB_buf PORT MAP(
+      Rst => rst,
+      Clk => clk,
+      writeBackControlSignal_In => writeBackControlSignal_MEM_MEMWB,
+      writeBackControlSignal_Out => WBControlSignal_MEMWB_WB,
+      Memory_Output_In => readData_Mem_MEM_MEMWB,
+      Memory_Output_Out => Memory_MEMWB_WB,
+      ALU_Output_In => ALU_MEM_MEMWB,
+      ALU_Output_Out => ALU_MEMWB_WB ,
+      writeAddressRegFile_In => regFileAddr_MEM_MEMWB
+    );
 
+
+    --WB Stage
+    WB: ENTITY work.WB_stage PORT MAP(
+      Rst => rst,
+      Clk => clk,
+      writeBackSignal => WBControlSignal_MEMWB_WB,
+      ALU_Output => ALU_MEMWB_WB,
+      Memory_Output => Memory_MEMWB_WB,
+      writeAddressIn => regFileAddr_MEM_MEMWB,
+      writeAddressOut => writeAddress_WB_DEC ,
+      writeData => writeData_WB_DEC,
+      writeEnable => writeEnable_WB_DEC
+    );
 
 end architecture ; -- arch

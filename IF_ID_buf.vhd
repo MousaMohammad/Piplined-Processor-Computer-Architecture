@@ -1,39 +1,37 @@
-Library ieee;
-Use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-Entity IFID_buf is
+ENTITY IFID_buf IS
 
-port (
-clk : in std_logic;
-rst : in std_logic;
-instruction_i : in std_logic_vector(31 downto 0);
-readEnable_i : in std_logic;
-PC_i : in std_logic_vector(31 downto 0);
-readEnable_o : out std_logic;
-instruction_o : out std_logic_vector(31 downto 0);
-PC_o : out std_logic_vector(31 downto 0)
+  PORT (
+    clk : IN STD_LOGIC;
+    rst : IN STD_LOGIC;
+    instruction_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    readEnable_i : IN STD_LOGIC;
+    PC_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    readEnable_o : OUT STD_LOGIC;
+    instruction_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    PC_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 
-);
+  );
 
-end entity;
+END ENTITY;
 
-architecture IFID_BUF_ARCH of IFID_buf IS
+ARCHITECTURE IFID_BUF_ARCH OF IFID_buf IS
 
-begin
+BEGIN
 
-    Process(Rst, Clk)
-  begin
-  if (Rst = '1') then
-    readEnable_o <= '0';
-    instruction_o <= (others => '0');
-    PC_o <= (others => '0');
-  elsif rising_edge(Clk) then
-    instruction_o <= instruction_i;
-    readEnable_o <= readEnable_i;
-    PC_o <= PC_i;
-  end if;
-  end Process;
+  PROCESS (Rst, Clk)
+  BEGIN
+    IF (Rst = '1') THEN
+      readEnable_o <= '0';
+      instruction_o <= (OTHERS => '0');
+      PC_o <= (OTHERS => '0');
+    ELSIF rising_edge(Clk) THEN
+      instruction_o <= instruction_i;
+      readEnable_o <= readEnable_i;
+      PC_o <= PC_i;
+    END IF;
+  END PROCESS;
 
-end IFID_BUF_ARCH;
-
-
+END IFID_BUF_ARCH;
