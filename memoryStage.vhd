@@ -25,7 +25,8 @@ ENTITY memoryStage IS
         ALU_Output_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- To be sent to MEM/WB buff
         readData_Mem : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); -- To be sent to MEM/WB buff
         RegFileAddressWB_Out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0); -- To be sent to MEM/WB buff
-        PC_Mux_Selector : OUT STD_LOGIC -- To be sent to Fetch
+        PC_Mux_Selector : OUT STD_LOGIC; -- To be sent to Fetch
+        freezePC : OUT STD_LOGIC
     );
 END ENTITY;
 
@@ -35,7 +36,11 @@ ARCHITECTURE memArch OF memoryStage IS
 BEGIN
 
     memWriteControlSignal_Out <= memWriteControlSignal_In;
-    memReadControlSignal_Out <= memReadControlSignal_In;
+    memReadControlSignal_Out <= memReadControlSignal_In WHEN memReadControlSignal_In = '1'
+    ELSE 'Z';
+
+    freezePC <= '1' WHEN SPControlSignal(3) = '1' OR memWriteControlSignal_In = '1' OR memReadControlSignal_In = '1'
+    ELSE '0';
 
     writeData_Mem <= (OTHERS => '0') WHEN Rst = '1'
         ELSE
@@ -50,13 +55,14 @@ BEGIN
         (OTHERS => '0');
 
     address_Out <= (OTHERS => '0') WHEN Rst = '1' ELSE
-        ALU_Output_In(19 DOWNTO 0) WHEN SPControlSignal(3) = '0' -- LOAD and STORE
+        ALU_Output_In(19 DOWNTO 0) 
+        WHEN SPControlSignal(3) = '0' -- LOAD and STORE
         ELSE
-        SP_Before WHEN SPControlSignal = "1010" OR SPControlSignal = "1011"
-        OR SPControlSignal = "1100" --PUSH/CALL/INT/ 
+        SP_Before WHEN 
+        SPControlSignal = "1010" OR SPControlSignal = "1011" OR SPControlSignal = "1100" --PUSH/CALL/INT/ 
         ELSE
-        SP_After WHEN SPControlSignal = "1000" OR SPControlSignal = "1001"
-        OR SPControlSignal = "1101"; --POP/RET/RTI
+        SP_After WHEN 
+        SPControlSignal = "1000" OR SPControlSignal = "1001" OR SPControlSignal = "1101"; --POP/RET/RTI
 
         SP_After <= x"FFFFF" WHEN Rst = '1' ELSE
         SP_Before WHEN SPControlSignal(3) = '0'

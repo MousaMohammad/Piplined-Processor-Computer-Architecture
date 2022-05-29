@@ -3,10 +3,9 @@ Use ieee.std_logic_1164.all;
 
 entity Integration is
   port (
-    instruction:IN std_logic_vector (31 DOWNTO 0);
 		clk : in std_logic;
 		rst : in std_logic;
-		readEnable, writeEnable: in std_logic;
+		writeEnable: in std_logic;
 		writeData_ToDecode : in std_logic_vector(31 downto 0);
     writeAddress_ToDecode : in std_logic_vector(2 downto 0);
     --- Outputs ---
@@ -24,6 +23,7 @@ entity Integration is
 end entity;
 
 architecture arch of Integration is
+
  --- singals from decode stage to IDEx buf --
  signal ExeSrc_dec_IDEX, SETC_dec_IDEX : STD_LOGIC;
  signal AluOpCode_dec_IDEX : std_logic_vector(2 downto 0);
@@ -57,14 +57,96 @@ signal dstAddress_IDEX_EXMEM : STD_LOGIC_VECTOR(2 downto 0);
 signal writeBackSignal_IDEX_EXMEM : STD_LOGIC_VECTOR(1 downto 0);
 signal SPcontrolSignals_IDEX_EXMEM :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
+-- this signal is used for structural hazard
+signal freezePC_MEM_IF : STD_LOGIC;
+-- the pc if the instruction is a jump
+signal jumpPC_EX_IF : STD_LOGIC_VECTOR(31 downto 0);
+-- 1 if jump, 0 if not
+signal useJumpPC_MEM_IF : STD_LOGIC;
+-- memory data bus
+signal MemDataIn : STD_LOGIC_VECTOR(31 downto 0);
+signal MemDataOut : STD_LOGIC_VECTOR(31 downto 0);
+signal MemReadEnable : STD_LOGIC;
+signal MemWriteEnable : STD_LOGIC;
+-- memory address bus
+signal MemAddress : STD_LOGIC_VECTOR(19 downto 0);
+
+-- instruction to IF_ID buffer
+signal instruction_IF_IFID : STD_LOGIC_VECTOR(31 downto 0);
+-- read enable for IF_ID buffer
+signal readEnable_IF_IFID : STD_LOGIC;
+-- PC to be used at adding jump offset
+signal PC_IF_IFID : STD_LOGIC_VECTOR(31 downto 0);
+
+signal readEnable_IFID_ID : STD_LOGIC;
+signal instruction_IFID_ID : STD_LOGIC_VECTOR(31 downto 0);
+signal PC_IFID_ID : STD_LOGIC_VECTOR(31 downto 0);
+
+-- CCR
+signal CCR_EXMEM_MEM : STD_LOGIC_VECTOR(2 downto 0);
+signal PC_EXMEM_MEM : STD_LOGIC_VECTOR(31 downto 0);
+signal jumpControlSignal_EXMEM_MEM : STD_LOGIC_VECTOR(2 downto 0);
+signal writeBackControlSignal_EXMEM_MEM : STD_LOGIC_VECTOR(1 downto 0);
+signal SPcontrolSignal_EXMEM_MEM : STD_LOGIC_VECTOR(3 downto 0);
+signal writeData_EXMEM_MEM : STD_LOGIC_VECTOR(31 downto 0);
+signal ALU_EXMEM_MEM : STD_LOGIC_VECTOR(31 downto 0);
+signal readEnable_EXMEM_MEM : STD_LOGIC;
+signal writeEnable_EXMEM_MEM : STD_LOGIC;
+signal regFileAddr_EXMEM_MEM : STD_LOGIC_VECTOR(2 downto 0);
+
+signal writeBackControlSignal_MEM_MEMWB : STD_LOGIC_VECTOR(1 downto 0);
+signal ALU_MEM_MEMWB : STD_LOGIC_VECTOR(31 downto 0);
+signal readData_Mem_MEM_MEMWB : STD_LOGIC_VECTOR(31 downto 0);
+signal regFileAddr_MEM_MEMWB : STD_LOGIC_VECTOR(2 downto 0);
+
+
+
+
 begin
+
+
+    -- Memory (does not belong to a particular stage)
+    mem : entity work.memory port map(
+        clk => clk,
+        readEnable => MemReadEnable,
+        writeEnable => MemWriteEnable,
+        address => MemAddress,
+        dataIn => MemDataIn,
+        dataOut => MemDataOut
+    );
+    --fetch stage --
+    fetchSTG : entity work.fetchStage port map (
+      clk => clk,
+      freezePC => freezePC_MEM_IF,
+      reset => rst,
+      jumpPC => jumpPC_EX_IF,
+      useJumpPC => useJumpPC_MEM_IF,
+      memData => MemDataOut,
+      memReadEn => MemReadEnable,
+      memAddr => MemAddress,
+      instruction => instruction_IF_IFID,
+      readEnable => readEnable_IF_IFID,
+      PC_out => PC_IF_IFID
+      );
+
+    -- buffer between fetch stage and decode stage --
+    fetchToDecodeBuffer : entity work.IFID_buf port map (
+      clk => clk, 
+      rst => rst,
+      instruction_i => instruction_IF_IFID,
+      readEnable_i => readEnable_IF_IFID,
+      PC_i => PC_IF_IFID,
+      instruction_o => instruction_IFID_ID,
+      readEnable_o => readEnable_IFID_ID,
+      PC_o => PC_IFID_ID
+      );
 
     ------from decode stage to ID/EX buffer------
     decodeSTG : entity work.DECODING port map(  
-      instruction => instruction,
+      instruction => instruction_IFID_ID,
       clk => clk,
       rst => rst,
-      readEnable => readEnable,
+      readEnable => readEnable_IFID_ID,
       writeEnable => writeEnable,
       writeData => writeData_ToDecode,
       writeAddress => writeAddress_ToDecode, --change to dstAddress from memBuf to test WB
@@ -162,5 +244,35 @@ begin
     writeBackControlSignal_o => writeBackControlSignal_o,
     RegFileAddressWB_o => RegFileAddressWB_o
     );
+
+    --Mem stage
+    memSTG: entity work.memoryStage port map(
+      Clk                   => clk,
+      Rst                   => rst,
+      CCR                   => CCR_EXMEM_MEM,
+      jumpControlSignal     => jumpControlSignal_EXMEM_MEM,
+      memWriteControlSignal_In    => writeEnable_EXMEM_MEM,
+      memReadControlSignal_In     => readEnable_EXMEM_MEM,
+      SPControlSignal             => SPControlSignal_EXMEM_MEM,
+      ALU_Output_In               => ALU_EXMEM_MEM,
+      writeBackControlSignal_In   => writeBackControlSignal_EXMEM_MEM,
+      writeDataBuff_In            => writeData_EXMEM_MEM,
+      PC                          => PC_EXMEM_MEM,
+      RegFileAddressWB_In         => regFileAddr_EXMEM_MEM,
+      Memory_Output               => MemDataOut,
+      memWriteControlSignal_Out   => MemWriteEnable,
+      memReadControlSignal_Out    => MemReadEnable,
+      writeData_Mem               => MemDataIn,
+      address_Out                 => MemAddress,
+      writeBackControlSignal_Out  => writeBackControlSignal_MEM_MEMWB,
+      ALU_Output_Out              => ALU_MEM_MEMWB,
+      readData_Mem                => readData_Mem_MEM_MEMWB,
+      RegFileAddressWB_Out        => regFileAddr_MEM_MEMWB,
+      PC_Mux_Selector             => useJumpPC_MEM_IF,
+      freezePC                    => freezePC_MEM_IF
+    );
+
+
+
 
 end architecture ; -- arch
