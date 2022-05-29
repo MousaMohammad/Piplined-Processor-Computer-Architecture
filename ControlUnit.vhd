@@ -32,6 +32,7 @@ begin
     else "010" when instruction(31 downto 26) = "001101" ----------STD
     else "101" when instruction(31 downto 26) = "010101" ------POP
     else "101" when instruction(31 downto 26) = "010001"; ------PUSH
+    else "111";
 
     ------------------------------------------WB CONTROL SIGNALS------------------------------------------------------
     writeBackSignal <= "00" when instruction(31 downto 26) = "101000"
