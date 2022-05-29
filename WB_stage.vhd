@@ -12,7 +12,7 @@ ENTITY WB_stage IS
         writeAddressOut : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         writeData : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         writeEnable : OUT STD_LOGIC;
-        OUT_PORT: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+        OUT_PORT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
 
 END ENTITY;
@@ -24,12 +24,13 @@ BEGIN
         ELSE
         '0';
     writeData <= (OTHERS => 'Z') WHEN Rst = '1' ELSE
-        ALU_Output WHEN writeBackSignal(0) = '0'ELSE
+        ALU_Output WHEN writeBackSignal(0) = '0' ELSE
         Memory_Output;
     writeAddressOut <= (OTHERS => 'Z') WHEN Rst = '1'
         ELSE
         writeAddressIn;
 
     OUT_PORT <= (OTHERS => 'Z') WHEN Rst = '1' OR writeBackSignal /= "01"
-    ELSE ALU_Output;
+        ELSE
+        ALU_Output;
 END ARCHITECTURE;

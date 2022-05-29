@@ -8,7 +8,9 @@ sim:/integration/writeData_WB_DEC \
 sim:/integration/writeEnable_WB_DEC \
 sim:/integration/writeAddress_WB_DEC \
 sim:/integration/IN_PORT \
-sim:/integration/OUT_PORT
+sim:/integration/OUT_PORT \
+sim:/integration/ALU_MEMWB_WB \
+sim:/integration/WBControlSignal_MEMWB_WB
 force -freeze sim:/integration/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/integration/rst 1 0
 run

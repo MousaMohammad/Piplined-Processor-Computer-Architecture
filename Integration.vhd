@@ -304,7 +304,8 @@ begin
       writeAddressIn => regFileAddr_MEMWB_WB,
       writeAddressOut => writeAddress_WB_DEC ,
       writeData => writeData_WB_DEC,
-      writeEnable => writeEnable_WB_DEC
+      writeEnable => writeEnable_WB_DEC,
+      OUT_PORT => OUT_PORT
     );
 
 end architecture ; -- arch
