@@ -25,23 +25,24 @@ architecture ControlUnitArch of ControlUnit IS
 
 begin
     ------------------------------------------ALU CONTROL SIGNALS------------------------------------------------------
-    ALUcontrolSignals <= instruction(30 downto 28) when  instruction(27 downto 26) = "00" ---------ALU OPERATION-------
-    else "010"  when instruction(31 downto 26) = "000001"---------MEMORY OPERATION-------
+    ALUcontrolSignals <= "010"  when instruction(31 downto 26) = "000001"---------MEMORY OPERATION-------
     else "101" when instruction(31 downto 26) = "000101" ------LDM
     else "010" when instruction(31 downto 26) = "001001" -------LDD
     else "010" when instruction(31 downto 26) = "001101" ----------STD
     else "101" when instruction(31 downto 26) = "010101" ------POP
-    else "101" when instruction(31 downto 26) = "010001"; ------PUSH
+    else "101" when instruction(31 downto 26) = "010001" ------PUSH
+    else "101" when instruction(31 downto 26) = "100100" ------IN
+    else instruction(30 downto 28) when  instruction(27 downto 26) = "00" ---------ALU OPERATION-------
     else "111";
 
     ------------------------------------------WB CONTROL SIGNALS------------------------------------------------------
-    writeBackSignal <= "00" when instruction(31 downto 26) = "101000"
+    writeBackSignal <= "00" when instruction(31 downto 26) = "101000" --NOP
     else "10" when instruction(27 downto 26) = "00" or instruction(31 downto 26) = "000001" ---------ALU OPERATION-------
     else "11" when instruction(27 downto 26) = "01" else "00"; ---------MEMORY OPERATION-------
     
     ------------------------------------------Memory_w_r CONTROL SIGNALS------------------------------------------------------
-    MemoryReadEnableSignal <= '1' when instruction(31 downto 26) = "000101" or instruction(31 downto 26) = "001001"
-    or instruction(31 downto 26) = "010101" or instruction(31 downto 26) = "010110" or instruction(31 downto 26) = "011110"
+    MemoryReadEnableSignal <= '1' when instruction(31 downto 26) = "000101" or instruction(31 downto 26) = "001001" --LDM/LDD
+    or instruction(31 downto 26) = "010101" or instruction(31 downto 26) = "010110" or instruction(31 downto 26) = "011110" --POP/ RET/RTI
     else '0';
     MemoryWriteEnableSignal <= '1' when instruction(31 downto 26) = "001101" or instruction(31 downto 26) = "010001" 
     or instruction(31 downto 26) = "010010" or instruction(31 downto 26) = "011010"
