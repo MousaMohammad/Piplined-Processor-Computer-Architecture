@@ -26,7 +26,7 @@ Entity DECODING IS
         MemoryReadEnableSignal : out std_logic; 
         MemoryWriteEnableSignal : out std_logic;
         SPcontrolSignals : out std_logic_vector(3 downto 0); ---(00: No change, 01: +1 for POP and RET, 10: -1 for PUSH and CALL)
-        CCR_ENABLE : out std_logic;
+        CCR_ENABLE : out std_logic
         --Interrupt_Index : out std_logic_vector(1 downto 0)
 	);
 	

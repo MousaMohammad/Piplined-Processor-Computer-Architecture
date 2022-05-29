@@ -40,8 +40,11 @@ begin
     
     ------------------------------------------Memory_w_r CONTROL SIGNALS------------------------------------------------------
     MemoryReadEnableSignal <= '1' when instruction(31 downto 26) = "000101" or instruction(31 downto 26) = "001001"
+    or instruction(31 downto 26) = "010101" or instruction(31 downto 26) = "010110" or instruction(31 downto 26) = "011110"
     else '0';
-    MemoryWriteEnableSignal <= '1' when instruction(31 downto 26) = "001101" else '0';
+    MemoryWriteEnableSignal <= '1' when instruction(31 downto 26) = "001101" or instruction(31 downto 26) = "010001" 
+    or instruction(31 downto 26) = "010010" or instruction(31 downto 26) = "011010"
+    else '0';
     ------------------------------------------Load/Store CONTROL SIGNALS------------------------------------------------------
     loadStoreControlSignals <= "100" when instruction(31 downto 26) = "000101" ------LDM
     else "101" when instruction(31 downto 26) = "001001" -------LDD
