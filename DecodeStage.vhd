@@ -45,9 +45,11 @@ BEGIN
 
     --dstAddress <= selDst;
 
-    selSr1 <= instruction(19 downto 17) when  instruction(31 downto 26)  = "000000" or instruction(31 downto 26)  = "000100" or instruction(31 downto 26)  = "010001"----NOT/INC/PUSH instruction
+    selSr1 <= instruction(19 downto 17) when  instruction(31 downto 26)  = "000000" --NOT
+    or instruction(31 downto 26)  = "000100" --INC
+    or instruction(31 downto 26)  = "010001" --PUSH
+    or instruction(31 downto 26)  = "100000" --OUT
     else instruction(25 downto 23);
-    
 
     selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";--(001101-STD)
     ---------------------------------------------------------------------------------------------------------
