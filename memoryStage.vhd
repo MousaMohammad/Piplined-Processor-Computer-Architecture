@@ -51,7 +51,7 @@ BEGIN
         ELSE
         ALU_Output_In WHEN SPControlSignal = "1010" -- PUSH Only
         ELSE
-        PC WHEN SPControlSignal = "1011" -- CALL Only
+        STD_LOGIC_VECTOR(UNSIGNED(PC) + 1) WHEN SPControlSignal = "1011" -- CALL Only
         ELSE
         STD_LOGIC_VECTOR(UNSIGNED(PC) + 1) WHEN SPControlSignal = "1100" --INT ONLY
         ELSE
@@ -105,6 +105,8 @@ BEGIN
         ELSE
         '1' WHEN jumpControlSignal = "111" AND CCR(0) = '1'
         ELSE
-        '0' WHEN jumpControlSignal = "111" AND CCR(0) = '0';
+        '0' WHEN jumpControlSignal = "111" AND CCR(0) = '0'
+        ELSE 
+        '1' WHEN SPControlSignal = "1011"; -- CALL 
 
 END memArch;
