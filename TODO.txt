@@ -1,0 +1,7 @@
+- FU			- DONE
+- SWAP			
+- BRANCH PREDICITON
+- INT
+- RET
+- RETI
+- CALL

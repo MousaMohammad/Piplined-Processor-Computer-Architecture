@@ -10,8 +10,9 @@ ENTITY FU IS
         Rdst_Mem : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         writeBack_ALU : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         writeBack_Memory : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-        FU_ALU_Rs1_Sel : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00:From decode, 01: From ALU, 10: From Memory 
-        FU_ALU_Rs2_Sel : OUT STD_LOGIC_VECTOR(1 DOWNTO 0) -- 00:From decode, 01: From ALU, 10: From Memory 
+        -- 00:From decode, 01: From ALU, 10: ALU Output from Memory, 11: Memory Output from Memory 
+        FU_ALU_Rs1_Sel : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); 
+        FU_ALU_Rs2_Sel : OUT STD_LOGIC_VECTOR(1 DOWNTO 0) 
     );
 
 END ENTITY;
@@ -23,7 +24,8 @@ BEGIN
         ELSE
         "01" WHEN Rs1_IDEX = Rdst_ALU AND writeBack_ALU(1) = '1'
         ELSE
-        "10" WHEN Rs1_IDEX = Rdst_Mem AND writeBack_Memory(1) = '1'
+        "10" WHEN Rs1_IDEX = Rdst_Mem AND writeBack_Memory = "10"
+        ELSE "11" WHEN Rs1_IDEX = Rdst_Mem AND writeBack_Memory = "11"
         ELSE
         "00";
 
@@ -31,7 +33,8 @@ BEGIN
         ELSE
         "01" WHEN Rs2_IDEX = Rdst_ALU AND writeBack_ALU(1) = '1'
         ELSE
-        "10" WHEN Rs2_IDEX = Rdst_Mem AND writeBack_Memory(1) = '1'
+        "10" WHEN Rs2_IDEX = Rdst_Mem AND writeBack_Memory = "10"
+        ELSE "11" WHEN Rs2_IDEX = Rdst_Mem AND writeBack_Memory = "11"
         ELSE
         "00";
 END ARCHITECTURE;

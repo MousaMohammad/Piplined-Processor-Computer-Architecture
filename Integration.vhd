@@ -238,7 +238,8 @@ begin
     F => Alu_Ex_EXMEM,
     WriteData => WriteData_Ex_EXMEM,
     ALU_Output => ALU_EXMEM_MEM,
-    Memory_Output => ALU_MEMWB_WB
+    ALU_Memory_Output => ALU_MEMWB_WB,
+    Memory_Memory_Output => Memory_MEMWB_WB,
     );
   -- execute stage to EX Mem buffer --
   EXMEM_Buf : ENTITY work.ExMem_buf PORT MAP(

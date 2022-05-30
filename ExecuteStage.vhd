@@ -19,7 +19,8 @@ ENTITY ExecuteStage IS
     FU_ALU_Rs1_Sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00:From decode, 01: From ALU, 10: From Memory 
     FU_ALU_Rs2_Sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00:From decode, 01: From ALU, 10: From Memory 
     ALU_Output : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    Memory_Output : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+    ALU_Memory_Output : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    Memory_Memory_Output: IN STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
 END ExecuteStage;
 
@@ -40,13 +41,15 @@ BEGIN
     ELSE
     ALU_Output WHEN FU_ALU_Rs1_Sel = "01"
     ELSE
-    Memory_Output WHEN FU_ALU_Rs1_Sel = "10";
+    ALU_Memory_Output WHEN FU_ALU_Rs1_Sel = "10"
+    ELSE Memory_Memory_Output WHEN FU_ALU_Rs1_Sel = "11";
 
   Operand2 <= Rsrc2 WHEN FU_ALU_Rs2_Sel = "00"
     ELSE
     ALU_Output WHEN FU_ALU_Rs2_Sel = "01"
     ELSE
-    Memory_Output WHEN FU_ALU_Rs2_Sel = "10";
+    ALU_Memory_Output WHEN FU_ALU_Rs2_Sel = "10"
+    ELSE Memory_Memory_Output WHEN FU_ALU_Rs2_Sel = "11";
 
   -- choosing the source of the instruction is it immediate or register -- 
   srcMux : ENTITY work.mux2_nbit GENERIC MAP(32) PORT MAP(Operand2, Immediate, ExeSrc, exeSrcSig);
