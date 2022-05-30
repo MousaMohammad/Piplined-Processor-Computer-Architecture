@@ -308,4 +308,10 @@ begin
       OUT_PORT => OUT_PORT
     );
 
+
+    -- fu: ENTITY work.FU PORT MAP(
+    --   Rst => rst,
+      
+    -- );
+
 end architecture ; -- arch

@@ -1,4 +1,3 @@
-
 Library ieee;
 Use ieee.std_logic_1164.all;
 
@@ -42,7 +41,9 @@ begin
     "00" when instruction(31 downto 26) = "101000" --NOP
     else "01" when instruction(31 downto 26) = "100000"         --OUT PORT
     else "10" when instruction(27 downto 26) = "00" or instruction(31 downto 26) = "000001" ---------ALU OPERATION-------
-    else "11" when instruction(27 downto 26) = "01" else "00"; ---------MEMORY OPERATION-------
+    else "11" when instruction(31 downto 26) = "000101" 
+    OR instruction(31 downto 26) = "001001" OR instruction(31 downto 26) = "010101"
+    else "00"; ---------MEMORY OPERATION-------
     
     ------------------------------------------Memory_w_r CONTROL SIGNALS------------------------------------------------------
     MemoryReadEnableSignal <= '1' when instruction(31 downto 26) = "000101" or instruction(31 downto 26) = "001001" --LDM/LDD

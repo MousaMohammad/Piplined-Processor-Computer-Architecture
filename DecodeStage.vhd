@@ -14,6 +14,10 @@ ENTITY DECODING IS
         ImmValue : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         readData1 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         readData2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        ------------------------------------------------
+        Rs1_address: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Rs2_address: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        ------------------------------------------------
         dstAddress : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         -------------control signals---------------------
         jumpControlSignals : out std_logic_vector(2 downto 0);
@@ -51,7 +55,10 @@ BEGIN
     or instruction(31 downto 26)  = "100000" --OUT
     else instruction(25 downto 23);
 
-    selSr2 <= instruction(22 downto 20) when  instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";--(001101-STD)
+    selSr2 <= instruction(22 downto 20) when instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";--(001101-STD)
+    
+    Rs1_address <= selSr1;
+    Rs2_address <= selSr2;
     ---------------------------------------------------------------------------------------------------------
     readEnable_LDM_In <= '0' WHEN instruction(31 DOWNTO 26) = "000101"  --LDM case
     OR instruction(31 DOWNTO 26) = "100100"                             --IN PORT
@@ -73,4 +80,6 @@ BEGIN
 
     CU : ENTITY work.ControlUnit PORT MAP(Rst => rst, instruction => instruction, jumpControlSignals => jumpControlSignals, ALUcontrolSignals => ALUcontrolSignals, Set_C => Set_C, LoadStoreControlSignals => LoadStoreControlSignals,
         writeBackSignal => writeBackSignal, MemoryReadEnableSignal => MemoryReadEnableSignal, MemoryWriteEnableSignal => MemoryWriteEnableSignal, SPcontrolSignals => SPcontrolSignals, CCR_ENABLE => CCR_ENABLE);
+      
+    
 END DecodeFunc;
