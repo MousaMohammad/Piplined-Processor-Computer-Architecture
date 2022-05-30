@@ -99,6 +99,13 @@ signal writeEnable_WB_DEC: STD_LOGIC;
 signal writeData_WB_DEC : STD_LOGIC_VECTOR (31 DOWNTO 0);
 signal writeAddress_WB_DEC : STD_LOGIC_VECTOR (2 DOWNTO 0);
 
+-- FU
+signal Rsrc1_address_dec_IDEX : STD_LOGIC_VECTOR(2 DOWNTO 0);
+signal Rsrc2_address_dec_IDEX : STD_LOGIC_VECTOR(2 DOWNTO 0);
+signal FU_ALU_Rs1_Sel: STD_LOGIC_VECTOR(1 DOWNTO 0);
+signal FU_ALU_Rs2_Sel: STD_LOGIC_VECTOR(1 DOWNTO 0);
+signal Rsrc1_address_IDEX_FU : STD_LOGIC_VECTOR(2 DOWNTO 0);
+signal Rsrc2_address_IDEX_FU : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 begin
 
@@ -155,6 +162,8 @@ begin
       ImmValue => Immediate_dec_IDEX,
       readData1 => Rsrc1_dec_IDEX,
       readData2 => Rsrc2_dec_IDEX,
+      Rs1_address => Rsrc1_address_dec_IDEX, 
+      Rs2_address => Rsrc2_address_dec_IDEX, 
       dstAddress => dstAddress_dec_IDEX,
       jumpControlSignals => jumpControlSignals_dec_IDEX,
       ALUcontrolSignals => AluOpCode_dec_IDEX,
@@ -196,6 +205,10 @@ begin
     Immediate_o => Immediate_IDEX_EX,
     PC_o => PC_IDEX_EX,
     CCR_ENABLE_o => CCR_ENABLE_IDEX_EX,
+    Rs1_address_i => Rsrc1_address_dec_IDEX, 
+    Rs2_address_i => Rsrc2_address_dec_IDEX,
+    Rs1_address_o => Rsrc1_address_IDEX_FU,
+    Rs2_address_o => Rsrc2_address_IDEX_FU,
     -- flowing signals from IDEx buf to EX Mem buffer --
     loadStoreControlSignals_o => LDSTControlSig_IDEX_EXMEM,
     MemRead_o => MemRead_IDEX_EXMEM,
@@ -214,6 +227,8 @@ begin
     AluOpCode => AluOpCode_IDEX_EX,
     Rsrc1 => Rsrc1_IDEX_EX,
     Rsrc2 => Rsrc2_IDEX_EX,
+    FU_ALU_Rs1_Sel => FU_ALU_Rs1_Sel,
+    FU_ALU_Rs2_Sel => FU_ALU_Rs2_Sel,
     Immediate => Immediate_IDEX_EX,
     PCin => PC_IDEX_EX,
     CCR_en => CCR_ENABLE_IDEX_EX,
@@ -221,7 +236,10 @@ begin
     CCR_o => CCR_Ex_EXMEM,
     PCout => PC_Ex_EXMEM,
     F => Alu_Ex_EXMEM,
-    WriteData => WriteData_Ex_EXMEM);
+    WriteData => WriteData_Ex_EXMEM,
+    ALU_Output => ALU_EXMEM_MEM,
+    Memory_Output => ALU_MEMWB_WB
+    );
   -- execute stage to EX Mem buffer --
   EXMEM_Buf : ENTITY work.ExMem_buf PORT MAP(
     Rst => Rst,
@@ -288,7 +306,7 @@ begin
       Memory_Output_In => readData_Mem_MEM_MEMWB,
       Memory_Output_Out => Memory_MEMWB_WB,
       ALU_Output_In => ALU_MEM_MEMWB,
-      ALU_Output_Out => ALU_MEMWB_WB ,
+      ALU_Output_Out => ALU_MEMWB_WB,
       writeAddressRegFile_In => regFileAddr_MEM_MEMWB,
       writeAddressRegFile_Out => regFileAddr_MEMWB_WB
     );
@@ -309,9 +327,16 @@ begin
     );
 
 
-    -- fu: ENTITY work.FU PORT MAP(
-    --   Rst => rst,
-      
-    -- );
+    fu: ENTITY work.FU PORT MAP(
+      Rst => rst,
+      Rs1_IDEX =>  Rsrc1_address_IDEX_FU, 
+      Rs2_IDEX => Rsrc2_address_IDEX_FU,
+      Rdst_ALU => regFileAddr_EXMEM_MEM,
+      Rdst_Mem => regFileAddr_MEMWB_WB,
+      writeBack_ALU => writeBackControlSignal_EXMEM_MEM,
+      writeBack_Memory => WBControlSignal_MEMWB_WB,
+      FU_ALU_Rs1_Sel => FU_ALU_Rs1_Sel, 
+      FU_ALU_Rs2_Sel => FU_ALU_Rs2_Sel
+    );
 
 end architecture ; -- arch

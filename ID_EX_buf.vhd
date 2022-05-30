@@ -28,8 +28,11 @@ entity IDEx_buf is
     SPcontrolSignals_i : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     SPcontrolSignals_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     CCR_ENABLE_i : IN STD_LOGIC;
-    CCR_ENABLE_o : OUT STD_LOGIC
-
+    CCR_ENABLE_o : OUT STD_LOGIC;
+    Rs1_address_i : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    Rs2_address_i : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    Rs1_address_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    Rs2_address_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
   ) ;
 end entity;
 
@@ -55,6 +58,8 @@ begin
     writeBackSignal_o <= (others => '0');
     SPcontrolSignals_o <= (others => '0');
     CCR_ENABLE_o <= '0';
+    Rs1_address_o <= (Others => '0');
+    Rs2_address_o <= (Others => '0');
 
   elsif rising_edge(Clk) AND LowActiveEnable = '0' then
     ExeSrc_o <= ExeSrc_i;
@@ -72,6 +77,8 @@ begin
     writeBackSignal_o <= writeBackSignal_i;
     SPcontrolSignals_o <= SPcontrolSignals_i;
     CCR_ENABLE_o <= CCR_ENABLE_i;
+    Rs1_address_o <= Rs1_address_i;
+    Rs2_address_o <= Rs2_address_i;
 
   end if;
   end Process;

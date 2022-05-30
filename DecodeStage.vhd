@@ -55,7 +55,8 @@ BEGIN
     or instruction(31 downto 26)  = "100000" --OUT
     else instruction(25 downto 23);
 
-    selSr2 <= instruction(22 downto 20) when instruction(27 downto 26) = "00" or instruction(31 downto 26) = "001101";--(001101-STD)
+    selSr2 <= instruction(22 downto 20) when instruction(27 downto 26) = "00" 
+    or instruction(31 downto 26) = "001101";--(001101-STD)
     
     Rs1_address <= selSr1;
     Rs2_address <= selSr2;

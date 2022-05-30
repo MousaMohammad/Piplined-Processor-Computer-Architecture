@@ -1,47 +1,65 @@
-Library ieee;
-Use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity ExecuteStage is
-  port (
+ENTITY ExecuteStage IS
+  PORT (
     Rst, Clk : IN STD_LOGIC;
-    ExeSrc:IN std_logic;
-    SETC:IN std_logic;
-    AluOpCode:IN std_logic_vector(2 downto 0);
-    Rsrc1:IN std_logic_vector(31 downto 0);
-    Rsrc2:IN std_logic_vector(31 downto 0);
-    Immediate:IN std_logic_vector(31 downto 0);
-    PCin:IN std_logic_vector(31 downto 0);
-    CCR_en:IN std_logic;
-    CCR_o:OUT std_logic_vector(2 downto 0);
-    PCout:OUT std_logic_vector(31 downto 0);
-    F:OUT std_logic_vector(31 downto 0);
-    WriteData:OUT std_logic_vector(31 downto 0)
-  ) ;
-end ExecuteStage;
+    ExeSrc : IN STD_LOGIC;
+    SETC : IN STD_LOGIC;
+    AluOpCode : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    Rsrc1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    Rsrc2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    Immediate : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    PCin : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    CCR_en : IN STD_LOGIC;
+    CCR_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    PCout : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    F : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    WriteData : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    FU_ALU_Rs1_Sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00:From decode, 01: From ALU, 10: From Memory 
+    FU_ALU_Rs2_Sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00:From decode, 01: From ALU, 10: From Memory 
+    ALU_Output : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    Memory_Output : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+  );
+END ExecuteStage;
 
-architecture archEx of ExecuteStage is
+ARCHITECTURE archEx OF ExecuteStage IS
 
-  signal exeSrcSig:std_logic_vector(31 downto 0);
+  SIGNAL exeSrcSig : STD_LOGIC_VECTOR(31 DOWNTO 0);
   -- CCR register signals --
-  signal ccrIn:std_logic_vector(2 downto 0);
-  signal ccrOut:std_logic_vector(2 downto 0);
+  SIGNAL ccrIn : STD_LOGIC_VECTOR(2 DOWNTO 0);
+  SIGNAL ccrOut : STD_LOGIC_VECTOR(2 DOWNTO 0);
   -- ALU signals to flag control --
-  signal cToflag:std_logic;
-  signal aluResult:std_logic_vector(31 downto 0);
+  SIGNAL cToflag : STD_LOGIC;
+  SIGNAL aluResult : STD_LOGIC_VECTOR(31 DOWNTO 0);
+  SIGNAL Operand1, Operand2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-begin
+BEGIN
+
+  Operand1 <= Rsrc1 WHEN FU_ALU_Rs1_Sel = "00"
+    ELSE
+    ALU_Output WHEN FU_ALU_Rs1_Sel = "01"
+    ELSE
+    Memory_Output WHEN FU_ALU_Rs1_Sel = "10";
+
+  Operand2 <= Rsrc2 WHEN FU_ALU_Rs2_Sel = "00"
+    ELSE
+    ALU_Output WHEN FU_ALU_Rs2_Sel = "01"
+    ELSE
+    Memory_Output WHEN FU_ALU_Rs2_Sel = "10";
+
   -- choosing the source of the instruction is it immediate or register -- 
-  srcMux: entity work.mux2_nbit GENERIC map(32) port map(Rsrc2, Immediate, ExeSrc, exeSrcSig);
+  srcMux : ENTITY work.mux2_nbit GENERIC MAP(32) PORT MAP(Operand2, Immediate, ExeSrc, exeSrcSig);
   -- pass the instruction to the ALU --
-  alu: entity work.ALU GENERIC map(32) port map(Rsrc1, exeSrcSig, AluOpCode,ccrIn,aluResult,cToflag);
+  alu : ENTITY work.ALU GENERIC MAP(32) PORT MAP(Operand1, exeSrcSig, AluOpCode, ccrIn, aluResult, cToflag);
   -- wire alu with flag control --
-  flagCU: entity work.flagControl port map(aluResult, cToflag, SETC, ccrIn,ccrOut,F);
+  flagCU : ENTITY work.flagControl PORT MAP(aluResult, cToflag, SETC, ccrIn, ccrOut, F);
   -- wire CCR register with flag control --
-  ccr: entity work.Reg GENERIC map(3) port map(Rst, Clk, CCR_en,ccrOut, ccrIn);
+  ccr : ENTITY work.Reg GENERIC MAP(3) PORT MAP(Rst, Clk, CCR_en, ccrOut, ccrIn);
   CCR_o <= ccrIn;
   -- add PCin with immediate --
-  PCadder: entity work.my_nadder GENERIC map(32) port map(PCin, Immediate,'0', PCout,open);
+  PCadder : ENTITY work.my_nadder GENERIC MAP(32) PORT MAP(PCin, Immediate, '0', PCout, OPEN);
   --- Rscr2 to WriteData --
-  WriteData <= Rsrc2;
+  WriteData <= Operand2;
 
-end archEx ; -- archEx
+END archEx; -- archEx
